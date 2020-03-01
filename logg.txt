@@ -1,0 +1,124 @@
+2/25/2020 11:57:28 AM [1582603048500] - [32minfo[39m: [32mRahulnod - LOGS - ------------------------------------------------[39m
+2/25/2020 11:57:28 AM [1582603048504] - [32minfo[39m: [32mRahulnod - LOGS - Welcome to the [35mALE Rainbow SDK for Node.JS[32m[39m
+2/25/2020 11:57:28 AM [1582603048504] - [32minfo[39m: [32mRahulnod - LOGS - Where Everything connects[39m
+2/25/2020 11:57:28 AM [1582603048504] - [32minfo[39m: [32mRahulnod - LOGS - Support: Send message to Emily using #support #api[39m
+2/25/2020 11:57:28 AM [1582603048504] - [32minfo[39m: [32mRahulnod - LOGS - ------------------------------------------------[39m
+2/25/2020 11:57:28 AM [1582603048504] - [32minfo[39m: [32mRahulnod - LOGS - (constructor) No file logs enabled[39m
+2/25/2020 11:57:28 AM [1582603048504] - [34mdebug[39m: [34mRahulnod - CORE - (constructor) _entering_[39m
+2/25/2020 11:57:28 AM [1582603048505] - [34mdebug[39m: [34mRahulnod - CORE - (constructor) ------- SDK INFORMATION -------[39m
+2/25/2020 11:57:28 AM [1582603048505] - [32minfo[39m: [32mRahulnod - CORE -  (constructor) SDK version: 1.67.1[39m
+2/25/2020 11:57:28 AM [1582603048505] - [32minfo[39m: [32mRahulnod - CORE -  (constructor) Node version: v12.14.0[39m
+2/25/2020 11:57:28 AM [1582603048505] - [32minfo[39m: [32mRahulnod - CORE -  (constructor) node version: 12.14.0[39m
+2/25/2020 11:57:28 AM [1582603048505] - [32minfo[39m: [32mRahulnod - CORE -  (constructor) v8 version: 7.7.299.13-node.16[39m
+2/25/2020 11:57:28 AM [1582603048505] - [32minfo[39m: [32mRahulnod - CORE -  (constructor) uv version: 1.33.1[39m
+2/25/2020 11:57:28 AM [1582603048505] - [32minfo[39m: [32mRahulnod - CORE -  (constructor) zlib version: 1.2.11[39m
+2/25/2020 11:57:28 AM [1582603048506] - [32minfo[39m: [32mRahulnod - CORE -  (constructor) brotli version: 1.0.7[39m
+2/25/2020 11:57:28 AM [1582603048506] - [32minfo[39m: [32mRahulnod - CORE -  (constructor) ares version: 1.15.0[39m
+2/25/2020 11:57:28 AM [1582603048506] - [32minfo[39m: [32mRahulnod - CORE -  (constructor) modules version: 72[39m
+2/25/2020 11:57:28 AM [1582603048506] - [32minfo[39m: [32mRahulnod - CORE -  (constructor) nghttp2 version: 1.39.2[39m
+2/25/2020 11:57:28 AM [1582603048506] - [32minfo[39m: [32mRahulnod - CORE -  (constructor) napi version: 5[39m
+2/25/2020 11:57:28 AM [1582603048506] - [32minfo[39m: [32mRahulnod - CORE -  (constructor) llhttp version: 1.1.4[39m
+2/25/2020 11:57:28 AM [1582603048506] - [32minfo[39m: [32mRahulnod - CORE -  (constructor) http_parser version: 2.8.0[39m
+2/25/2020 11:57:28 AM [1582603048506] - [32minfo[39m: [32mRahulnod - CORE -  (constructor) openssl version: 1.1.1d[39m
+2/25/2020 11:57:28 AM [1582603048506] - [32minfo[39m: [32mRahulnod - CORE -  (constructor) cldr version: 35.1[39m
+2/25/2020 11:57:28 AM [1582603048506] - [32minfo[39m: [32mRahulnod - CORE -  (constructor) icu version: 64.2[39m
+2/25/2020 11:57:28 AM [1582603048506] - [32minfo[39m: [32mRahulnod - CORE -  (constructor) tz version: 2019c[39m
+2/25/2020 11:57:28 AM [1582603048506] - [32minfo[39m: [32mRahulnod - CORE -  (constructor) unicode version: 12.1[39m
+2/25/2020 11:57:28 AM [1582603048506] - [34mdebug[39m: [34mRahulnod - CORE - (constructor) ------- SDK INFORMATION -------[39m
+2/25/2020 11:57:28 AM [1582603048507] - [32minfo[39m: [32mRahulnod - OPTIONS - (constructor) 'proxy' property is not defined. Use default: no proxy. Check the documentation to enable it[39m
+2/25/2020 11:57:28 AM [1582603048507] - [34mdebug[39m: [34mRahulnod - OPTIONS - (constructor) Use REST services on Rainbow Sandbox platform[39m
+2/25/2020 11:57:28 AM [1582603048507] - [34mdebug[39m: [34mRahulnod - OPTIONS - (constructor) Use XMPP services on Rainbow Sandbox platform[39m
+2/25/2020 11:57:28 AM [1582603048507] - [34mdebug[39m: [34mRahulnod - OPTIONS - (constructor) Use S2S services on Rainbow Sandbox platform[39m
+2/25/2020 11:57:28 AM [1582603048508] - [32minfo[39m: [32mRahulnod - OPTIONS - (constructor) 'user' property not defined. No authentication. [39m
+2/25/2020 11:57:28 AM [1582603048508] - [32minfo[39m: [32mRahulnod - OPTIONS - (constructor) 'password' property not defined. No authentication.[39m
+2/25/2020 11:57:28 AM [1582603048508] - [32minfo[39m: [32mRahulnod - OPTIONS - (constructor) 'secureProtocol' property not defined. No SSL3.[39m
+2/25/2020 11:57:28 AM [1582603048508] - [32minfo[39m: [32mRahulnod - CORE - (constructor) used in XMPP mode[39m
+2/25/2020 11:57:28 AM [1582603048512] - [34mdebug[39m: [34mRahulnod - CORE - (constructor) _exiting_[39m
+2/25/2020 11:57:28 AM [1582603048512] - [34mdebug[39m: [34mRahulnod - CORE - (start) _entering_[39m
+2/25/2020 11:57:28 AM [1582603048512] - [32minfo[39m: [32mRahulnod - CORE - (start) STARTING the SDK :  1.67.1[39m
+2/25/2020 11:57:28 AM [1582603048512] - [34mdebug[39m: [34mRahulnod - CORE - (start) start all modules[39m
+2/25/2020 11:57:28 AM [1582603048513] - [34mdebug[39m: [34mRahulnod - STATEMGR - (start) _entering_[39m
+2/25/2020 11:57:28 AM [1582603048513] - [32minfo[39m: [32mRahulnod - STATEMGR - (start) current state starting[39m
+2/25/2020 11:57:28 AM [1582603048513] - [34mdebug[39m: [34mRahulnod - STATEMGR - (start) _exiting_[39m
+2/25/2020 11:57:28 AM [1582603048514] - [34mdebug[39m: [34mRahulnod - HTTP - (start) host used sandbox.openrainbow.com[39m
+2/25/2020 11:57:28 AM [1582603048514] - [32minfo[39m: [32mRahulnod - HTTP - (start) REST URL https://sandbox.openrainbow.com:443[39m
+2/25/2020 11:57:28 AM [1582603048514] - [34mdebug[39m: [34mRahulnod - XMPP - (start) host used :  sandbox.openrainbow.com[39m
+2/25/2020 11:57:28 AM [1582603048514] - [32minfo[39m: [32mRahulnod - XMPP - (start) XMPP URL :  [39m
+2/25/2020 11:57:28 AM [1582603048515] - [32minfo[39m: [32mRahulnod - S2S - (start) S2S connection blocked by configuration[39m
+2/25/2020 11:57:28 AM [1582603048515] - [34mdebug[39m: [34mRahulnod - CONTACTS/SVCE - (start) Create userContact ()[39m
+2/25/2020 11:57:28 AM [1582603048517] - [32minfo[39m: [32mRahulnod - PROFILES/SVCE - (start) [profileService] === STARTING ===[39m
+2/25/2020 11:57:28 AM [1582603048517] - [34mdebug[39m: [34mRahulnod - PROFILES/SVCE - (isFeatureEnabled) : TELEPHONY_VOICE_MAIL : service not started or feature not enabled[39m
+2/25/2020 11:57:28 AM [1582603048519] - [32minfo[39m: [32mRahulnod - CALLLOG/SVCE -  [39m
+2/25/2020 11:57:28 AM [1582603048519] - [32minfo[39m: [32mRahulnod - CALLLOG/SVCE - [start] === STARTING ===[39m
+2/25/2020 11:57:28 AM [1582603048519] - [32minfo[39m: [32mRahulnod - CALLLOG/SVCE - (attachHandlers)[39m
+2/25/2020 11:57:28 AM [1582603048520] - [32minfo[39m: [32mRahulnod - FAVTE/SVCE -  [39m
+2/25/2020 11:57:28 AM [1582603048520] - [32minfo[39m: [32mRahulnod - FAVTE/SVCE - [start] === STARTING ===[39m
+2/25/2020 11:57:28 AM [1582603048520] - [32minfo[39m: [32mRahulnod - FAVTE/SVCE - [attachHandlers] attachHandlers[39m
+2/25/2020 11:57:28 AM [1582603048520] - [32minfo[39m: [32mRahulnod - FAVTE/SVCE - === STARTED (0 ms) ===[39m
+2/25/2020 11:57:28 AM [1582603048520] - [32minfo[39m: [32mRahulnod - INVITATION/SVCE - [39m
+2/25/2020 11:57:28 AM [1582603048520] - [32minfo[39m: [32mRahulnod - INVITATION/SVCE - [InvitationService] === STARTING ===[39m
+2/25/2020 11:57:28 AM [1582603048520] - [32minfo[39m: [32mRahulnod - INVITATION/SVCE - [InvitationService] attachHandlers[39m
+2/25/2020 11:57:28 AM [1582603048521] - [32minfo[39m: [32mRahulnod - INVITATION/SVCE - [InvitationService] === STARTED (1 ms) ===[39m
+2/25/2020 11:57:28 AM [1582603048521] - [34mdebug[39m: [34mRahulnod - CORE - (start) all modules started successfully[39m
+2/25/2020 11:57:28 AM [1582603048521] - [32minfo[39m: [32mRahulnod - STATEMGR - (transitTo) set state started[39m
+2/25/2020 11:57:28 AM [1582603048522] - [32minfo[39m: [32mRahulnod - EVENTS - (publishEvent) event [3m[4m[35mrainbow_onstarted[32m[24m[23m[39m
+2/25/2020 11:57:28 AM [1582603048523] - [34mdebug[39m: [34mRahulnod - CORE - (start) _exiting_[39m
+2/25/2020 11:57:28 AM [1582603048524] - [34mdebug[39m: [34mRahulnod - CORE - (signin) _entering_[39m
+2/25/2020 11:57:28 AM [1582603048524] - [34mdebug[39m: [34mRahulnod - XMPP - (stop) nothing to stop[39m
+2/25/2020 11:57:28 AM [1582603048525] - [32minfo[39m: [32mRahulnod - HTTP - (get) url :  [[39m
+[32m  [32m'https://sandbox.openrainbow.com:443/api/rainbow/authentication/v1.0/login'[32m[39m
+[32m][39m
+2/25/2020 11:57:29 AM [1582603049347] - [32minfo[39m: [32mRahulnod - HTTP - (get) successfull[39m
+2/25/2020 11:57:29 AM [1582603049347] - [32minfo[39m: [32mRahulnod - HTTP - (get) HTTP statusCode defined :  200[39m
+2/25/2020 11:57:29 AM [1582603049351] - [32minfo[39m: [32mRahulnod - XMPP - (handleXMPPConnection) event - STATUS_EVENT : status | connecting[39m
+2/25/2020 11:57:30 AM [1582603050052] - [34mdebug[39m: [34mRahulnod - CORE - (stop) _entering_[39m
+2/25/2020 11:57:30 AM [1582603050052] - [34mdebug[39m: [34mRahulnod - CORE - (stop) stop all modules[39m
+2/25/2020 11:57:30 AM [1582603050052] - [32minfo[39m: [32mRahulnod - HTTP - (get) url :  [[39m
+[32m  [32m'https://sandbox.openrainbow.com:443/api/rainbow/authentication/v1.0/logout'[32m[39m
+[32m][39m
+2/25/2020 11:57:30 AM [1582603050108] - [32minfo[39m: [32mRahulnod - XMPP - (handleXMPPConnection) event - STATUS_EVENT : status | connect[39m
+2/25/2020 11:57:30 AM [1582603050109] - [34mdebug[39m: [34mRahulnod - XMPP - (handleXMPPConnection) event - CONNECT_EVENT : connect[39m
+2/25/2020 11:57:30 AM [1582603050109] - [32minfo[39m: [32mRahulnod - XMPP - (handleXMPPConnection) event - STATUS_EVENT : status | opening[39m
+2/25/2020 11:57:30 AM [1582603050298] - [32minfo[39m: [32mRahulnod - XMPP - (handleXMPPConnection) event - STATUS_EVENT : status | open[39m
+2/25/2020 11:57:30 AM [1582603050298] - [34mdebug[39m: [34mRahulnod - XMPPCLIENT(event) open[39m
+2/25/2020 11:57:30 AM [1582603050486] - [32minfo[39m: [32mRahulnod - XMPP - (handleXMPPConnection) event - STATUS_EVENT : status | opening[39m
+2/25/2020 11:57:30 AM [1582603050623] - [32minfo[39m: [32mRahulnod - HTTP - (get) successfull[39m
+2/25/2020 11:57:30 AM [1582603050623] - [32minfo[39m: [32mRahulnod - HTTP - (get) HTTP statusCode defined :  200[39m
+2/25/2020 11:57:30 AM [1582603050623] - [32minfo[39m: [32mRahulnod - REST - (signout) Successfully signed-out![39m
+2/25/2020 11:57:30 AM [1582603050623] - [34mdebug[39m: [34mRahulnod - REST - (stop) Successfully stopped[39m
+2/25/2020 11:57:30 AM [1582603050624] - [32minfo[39m: [32mRahulnod - HTTP - (stop) Successfully stopped[39m
+2/25/2020 11:57:30 AM [1582603050624] - [34mdebug[39m: [34mRahulnod - XMPP - (stop) stop XMPP auto-reconnect mode[39m
+2/25/2020 11:57:30 AM [1582603050624] - [34mdebug[39m: [34mRahulnod - XMPPCLIENT(send) _entering_[39m
+2/25/2020 11:57:30 AM [1582603050625] - [34mdebug[39m: [34mRahulnod - XMPPQUEUE(addPromise) _entering_[39m
+2/25/2020 11:57:30 AM [1582603050625] - [32minfo[39m: [32mRahulnod - XMPP - (handleXMPPConnection) event - STATUS_EVENT : status | closing[39m
+2/25/2020 11:57:30 AM [1582603050625] - [34mdebug[39m: [34mRahulnod - XMPPQUEUE(addPromise) promise storing[39m
+2/25/2020 11:57:30 AM [1582603050625] - [34mdebug[39m: [34mRahulnod - XMPPCLIENT(send) sent[39m
+2/25/2020 11:57:30 AM [1582603050646] - [34mdebug[39m: [34mRahulnod - XMPPCLIENT(send) _exiting_ return promise[39m
+2/25/2020 11:57:30 AM [1582603050673] - [32minfo[39m: [32mRahulnod - XMPP - (handleXMPPConnection) event - STATUS_EVENT : status | open[39m
+2/25/2020 11:57:30 AM [1582603050673] - [34mdebug[39m: [34mRahulnod - XMPPCLIENT(event) open[39m
+2/25/2020 11:57:30 AM [1582603050823] - [32minfo[39m: [32mRahulnod - XMPP - (handleXMPPConnection) event - STATUS_EVENT : status | close[39m
+2/25/2020 11:57:30 AM [1582603050823] - [34mdebug[39m: [34mRahulnod - XMPPCLIENT(event) close[39m
+2/25/2020 11:57:30 AM [1582603050823] - [34mdebug[39m: [34mRahulnod - XMPP - (handleXMPPConnection) event - CLOSE_EVENT : close |<close xmlns="urn:ietf:params:xml:ns:xmpp-framing"/>[39m
+2/25/2020 11:57:30 AM [1582603050823] - [32minfo[39m: [32mRahulnod - XMPP - (handleXMPPConnection) event - STATUS_EVENT : status | disconnecting[39m
+2/25/2020 11:57:30 AM [1582603050825] - [32minfo[39m: [32mRahulnod - XMPP - (handleXMPPConnection) event - STATUS_EVENT : status | disconnect[39m
+2/25/2020 11:57:30 AM [1582603050825] - [34mdebug[39m: [34mRahulnod - XMPP - (handleXMPPConnection) event - DISCONNECT_EVENT : disconnect | { reconnect: [1mnull[22m }[39m
+2/25/2020 11:57:30 AM [1582603050826] - [32minfo[39m: [32mRahulnod - CORE -  (rainbow_xmppdisconnect) set to state :  stopped[39m
+2/25/2020 11:57:30 AM [1582603050826] - [34mdebug[39m: [34mRahulnod - XMPP - (handleXMPPConnection) event - DISCONNECT_EVENT : wait 13 seconds before try to reconnect[39m
+2/25/2020 11:57:30 AM [1582603050826] - [32minfo[39m: [32mRahulnod - XMPP - (handleXMPPConnection) event - STATUS_EVENT : status | offline[39m
+2/25/2020 11:57:30 AM [1582603050826] - [34mdebug[39m: [34mRahulnod - XMPP - (handleXMPPConnection) event - OFFLINE_EVENT : offline |<close xmlns="urn:ietf:params:xml:ns:xmpp-framing"/>[39m
+2/25/2020 11:57:30 AM [1582603050826] - [34mdebug[39m: [34mRahulnod - XMPP - (stop) stop XMPP connection[39m
+2/25/2020 11:57:30 AM [1582603050828] - [34mdebug[39m: [34mRahulnod - STATEMGR - (stop) _entering_[39m
+2/25/2020 11:57:30 AM [1582603050828] - [32minfo[39m: [32mRahulnod - STATEMGR - (transitTo) the state is yet  stopped , so ignore it.[39m
+2/25/2020 11:57:30 AM [1582603050829] - [32minfo[39m: [32mRahulnod - STATEMGR - (stop) current state stopped[39m
+2/25/2020 11:57:30 AM [1582603050829] - [34mdebug[39m: [34mRahulnod - STATEMGR - (stop) _exiting_[39m
+2/25/2020 11:57:30 AM [1582603050829] - [32minfo[39m: [32mRahulnod - CALLLOG/SVCE - [stop] Stopping[39m
+2/25/2020 11:57:30 AM [1582603050829] - [32minfo[39m: [32mRahulnod - CALLLOG/SVCE - [stop] Stopped[39m
+2/25/2020 11:57:30 AM [1582603050830] - [32minfo[39m: [32mRahulnod - FAVTE/SVCE - [stop] Stopping[39m
+2/25/2020 11:57:30 AM [1582603050830] - [32minfo[39m: [32mRahulnod - FAVTE/SVCE - [stop] Stopped[39m
+2/25/2020 11:57:30 AM [1582603050830] - [32minfo[39m: [32mRahulnod - INVITATION/SVCE - [39m
+2/25/2020 11:57:30 AM [1582603050830] - [32minfo[39m: [32mRahulnod - INVITATION/SVCE - [InvitationService] === STOPPING ===[39m
+2/25/2020 11:57:30 AM [1582603050830] - [32minfo[39m: [32mRahulnod - INVITATION/SVCE - [InvitationService] === STOPPED ===[39m
+2/25/2020 11:57:30 AM [1582603050831] - [34mdebug[39m: [34mRahulnod - CORE - (stop) _exiting_[39m
+2/25/2020 11:57:30 AM [1582603050840] - [34mdebug[39m: [34mRahulnod - XMPP - (handleXMPPConnection) event - DISCONNECT_EVENT : reconnection disabled so no reconnect[39m
+2/25/2020 11:57:32 AM [1582603052326] - [32minfo[39m: [32mRahulnod - STATEMGR - (transitTo) set state stopped[39m
+2/25/2020 11:57:32 AM [1582603052327] - [32minfo[39m: [32mRahulnod - EVENTS - (publishEvent) event [3m[4m[35mrainbow_onstopped[32m[24m[23m[39m
