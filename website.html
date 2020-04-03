@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+ <html>
+ <head>
+ 	<title>sup</title>
+ </head>
+ <body>
+ <p>enter first name</p>
+ <input type="text" id="fname" ><br><br>
+ <p>enter last name</p>
+ <input type="text" id="lname" ><br><br>
+ <p>enter email</p>
+ <input type="text" id="email" ><br><br>
+ <p>enter Password</p>
+ <input type="password" id="pwd" ><br><br>
+ <p id="demo" onclick="myFunction()" >Click me to submit.</p>
+
+<script>
+function myFunction() {
+  document.getElementById("demo").innerHTML = "click again";
+  var string = "'http://localhost:3000/signup?fname="+document.getElementById("fname").value +"&lname="+document.getElementById("lname").value+"&email="+document.getElementById("email").value+"&password="+document.getElementById("pwd").value+"'";
+
+
+
+  document.getElementById("demo").setAttribute("onclick", "location.href="+string);
+//style.color = "red";
+}
+</script>
+ </body>
+ </html>

@@ -53,17 +53,23 @@ var options = createOptions();
 // Instantiate the SDK
 let rainbowSDK = new RainbowSDK(options);
 // Start the SDK
-let userEmailAccount = "agentttest@gmail.com";
+let userEmailAccount = "agentttefst@gmail.com";
 let userPassword = "Agent2password!";
 let userFirstname = "Agent2copy";
 let userLastname = "002";
 app.get('/signup', (req, res)=> {
-    userEmailAccount = req.query['email'].toString();
-    userPassword = req.query['password'].toString();
-    userFirstname = req.query['fname'].toString();
-    userLastname = req.query['lname'].toString();
+  
+    userFirstname = req.query['fname'];
+    userLastname = req.query['lname'];
+    userEmailAccount = req.query['email'];
+    userPassword = req.query['password'];
+    console.log(userLastname);
+    console.log(userFirstname);
+    console.log(userPassword);
+    console.log(userEmailAccount);
     rainbowSDK.start();
-    userFirstname = "Herro";
+    //userLastname = "ssss";
+    
     res.send("Creating a user...... give it a minute");
 
     
@@ -78,15 +84,18 @@ app.listen(port, () => console.log(`Example app listening at http://localhost:${
 rainbowSDK.events.on("rainbow_onready", () => {
 
 console.log("before");
-rainbowSDK.admin.createUserInCompany(userEmailAccount, userPassword, userFirstname, userLastname,"5e517abab4528b74a00c92a8").then((user) => {
+let prom= rainbowSDK.admin.createUserInCompany(userEmailAccount, userPassword, userFirstname, userLastname,"5e517abab4528b74a00c92a8").then((user) => {
   
     
 console.log("addwed");
+rainbowSDK.stop();
 // Do something when the user has been created and added to that company
 
 }).catch((err) => {
+
 // Do something in case of error
 console.log(err);
+rainbowSDK.stop();
 }); 
     // Get your network's list of contacts
     
