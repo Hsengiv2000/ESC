@@ -67,6 +67,7 @@ app.get('/signup', (req, res)=> {
     console.log(userFirstname);
     console.log(userPassword);
     console.log(userEmailAccount);
+    
     rainbowSDK.start();
     //userLastname = "ssss";
     
@@ -84,6 +85,7 @@ app.listen(port, () => console.log(`Example app listening at http://localhost:${
 rainbowSDK.events.on("rainbow_onready", () => {
 
 console.log("before");
+
 let prom= rainbowSDK.admin.createUserInCompany(userEmailAccount, userPassword, userFirstname, userLastname,"5e517abab4528b74a00c92a8").then((user) => {
   
     
