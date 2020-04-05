@@ -57,6 +57,7 @@ let userEmailAccount = "agentttefst@gmail.com";
 let userPassword = "Agent2password!";
 let userFirstname = "Agent2copy";
 let userLastname = "002";
+let jid ;
 app.get('/signup', (req, res)=> {
   
     userFirstname = req.query['fname'];
@@ -70,15 +71,19 @@ app.get('/signup', (req, res)=> {
     
     rainbowSDK.start();
     //userLastname = "ssss";
-    
-    res.send("Creating a user...... give it a minute");
+    setTimeout(function(){
+        console.log("calling this");
+        res.send("save this jid: " + jid);
+
+    } , 45000);
+  
 
     
 }
 
 );
 
-app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`))
+app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`));
 
 
 
@@ -87,9 +92,13 @@ rainbowSDK.events.on("rainbow_onready", () => {
 console.log("before");
 
 let prom= rainbowSDK.admin.createUserInCompany(userEmailAccount, userPassword, userFirstname, userLastname,"5e517abab4528b74a00c92a8").then((user) => {
-  
+    jid = user.jid_im;
     
+    console.log("suppp");
+   
+   
 console.log("addwed");
+
 rainbowSDK.stop();
 // Do something when the user has been created and added to that company
 
@@ -100,6 +109,9 @@ console.log(err);
 rainbowSDK.stop();
 }); 
     // Get your network's list of contacts
+    
+   
+    
     
     
 });

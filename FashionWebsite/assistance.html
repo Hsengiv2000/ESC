@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>Assistance</title>
+<link rel="stylesheet" type="text/css" href= "Rahul.css">
+</head>
+<body>
+<h1>Please fill in the given checkbox</h1>
+<h5>The data provided will help us provide better services and improve the functioning of the website </h5>
+<br>
+<form action = "fashion.html">
+<input type ="radio" id="a" value="complicated site navigation" name="rb"> complicated site navigation<br>
+<input type ="radio" id="b" value="Limited product info" name="rb"> Limited product info<br>
+<input type ="radio" id ="c" value="Poor customer support" name="rb"> Poor customer support<br>
+<input type ="radio" id = "d" value=" Disappointing page load time" name="rb"> Disappointing page load time<br>
+<input type ="radio" id = "e" value="Unattractive website layout" name="rb"> Unattractive website layout<br>
+<input type ="radio" id = "f" value = "none of the above" name="rb"> none of the above<br>
+<br>
+<button type = "submit" value ="submit" onclick = "getElementById('demo').innerHTML=message()">submit</button>
+    <p id="demo" onclick = "radiotextgetter()">supp</p>
+<script>
+function message() {
+  alert("You have completed the form! Thanks for your help in making our service better");
+}
+function radiotextgetter(){
+
+	if(document.getElementById("a").checked==true)
+		document.getElementById("demo").innerHTML = document.getElementById("a").value;
+	if(document.getElementById("b").checked==true)
+		document.getElementById("demo").innerHTML = document.getElementById("b").value;
+	if(document.getElementById("c").checked==true)
+		document.getElementById("demo").innerHTML = document.getElementById("c").value;
+	if(document.getElementById("d").checked==true)
+		document.getElementById("demo").innerHTML = document.getElementById("d").value;
+	if(document.getElementById("e").checked==true)
+		document.getElementById("demo").innerHTML = document.getElementById("e").value;
+	if(document.getElementById("f").checked==true)
+		document.getElementById("demo").innerHTML = document.getElementById("f").value;
+}
+
+</script>
+</form>
+<h5> Thank you for your cooperation and sorry for any inconvenience caused</h5>
+</body>
+</html>
