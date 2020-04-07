@@ -46,7 +46,7 @@ function radiotextgetter(){
 		
 	document.getElementById("demo").innerHTML ="You have selected : " +document.getElementById("jid").value;
 
-    var string="'http://localhost:1334/?task="+text+"&type=chat&jid="+document.getElementById("jid").value+"'";
+    var string="'http://ec2-3-134-83-109.us-east-2.compute.amazonaws.com:1334/?task="+text+"&type=chat&jid="+document.getElementById("jid").value+"'";
 	document.getElementById("demo").setAttribute("onclick", "location.href="+string);
 }
 

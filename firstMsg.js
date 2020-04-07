@@ -134,7 +134,7 @@ function enable(){
     rainbowSDK.events.on('rainbow_onstopped' , (message)=>{
 
         console.log("stopped");
-        httpGetAsync("http://localhost:1334/disconnect?djid="+myId+"&daid="+agentId,(res)=>{console.log(res)});
+        httpGetAsync("http://ec2-3-134-83-109.us-east-2.compute.amazonaws.com:1334/disconnect?djid="+myId+"&daid="+agentId,(res)=>{console.log(res)});
        // httpGetAsync("http://localhost:1333/disconnect");
         
     });
