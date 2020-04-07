@@ -83,6 +83,7 @@ app.get('/gotjid' ,(req,res)=>{
 });
 app.get('/stop' , (req,res)=>{
     rainbowSDK.stop();
+    res.sendfile("./fashion.html");
 });
 app.get('/send',(req, res)=>{
     var msg = req.query["msg"];
@@ -134,7 +135,7 @@ function enable(){
     rainbowSDK.events.on('rainbow_onstopped' , (message)=>{
 
         console.log("stopped");
-        httpGetAsync("http://ec2-3-134-83-109.us-east-2.compute.amazonaws.com:1334/disconnect?djid="+myId+"&daid="+agentId,(res)=>{console.log(res)});
+        httpGetAsync("http://ec2-18-223-16-89.us-east-2.compute.amazonaws.com:1334/disconnect?djid="+myId+"&daid="+agentId,(res)=>{console.log(res)});
        // httpGetAsync("http://localhost:1333/disconnect");
         
     });

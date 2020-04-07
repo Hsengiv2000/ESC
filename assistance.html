@@ -56,7 +56,7 @@ function radiotextgetter(){
 		
 	document.getElementById("demo").innerHTML ="You have selected : " +document.getElementById("jid").value;
 
-    var string="http://ec2-3-134-83-109.us-east-2.compute.amazonaws.com:1334/?task="+text+"&type=chat&jid="+document.getElementById("jid").value;
+    var string="http://ec2-18-223-16-89.us-east-2.compute.amazonaws.com:1334/?task="+text+"&type=chat&jid="+document.getElementById("jid").value;
     sendXHR(string, (message)=>{
     	if(message.length>70){
 document.getElementById("demo").setAttribute("onclick", "location.href='http://localhost:3002/gotjid?aid="+message+"&myid="+document.getElementById("jid").value+"'");}

@@ -83,8 +83,9 @@ sendXHR("http://localhost:3002/send?msg="+string.replace(/ /g, "%%")  , (msg)=>{
 }
 function disconnect(){
 
-sendXHR("http://localhost:3002/stop", (msg)=>{console.log("recieved")});
-window.close();
+//sendXHR("http://localhost:3002/stop", (msg)=>{console.log("recieved")});
+console.log("disconnecting");
+document.getElementById("disconnect").setAttribute("onclick", "location.href="+"'http://localhost:3002/stop'");
 
 }
 init();
