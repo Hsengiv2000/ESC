@@ -171,8 +171,9 @@ console.log(rainbowSDK);
 });
 
 rainbowSDK.events.on('rainbow_onmessagereceived', (message) => {
+    if(message.fromJid == agentId){
     test.push(message.content);
-    
+    }
 console.log(message.content);
 
 

@@ -24,6 +24,16 @@
 function message() {
   alert("You have completed the form! Thanks for your help in making our service better");
 }
+function sendXHR(repo, cb) {
+  var xhr = new XMLHttpRequest();
+  var self = this;
+  xhr.open('GET',  repo);
+  xhr.onload = function () {
+    var res = xhr.responseText;
+    cb(res);
+  }
+  xhr.send();
+}
 function radiotextgetter(){
     var text="F";
 	if(document.getElementById("a").checked==true)
@@ -46,8 +56,12 @@ function radiotextgetter(){
 		
 	document.getElementById("demo").innerHTML ="You have selected : " +document.getElementById("jid").value;
 
-    var string="'http://ec2-3-134-83-109.us-east-2.compute.amazonaws.com:1334/?task="+text+"&type=chat&jid="+document.getElementById("jid").value+"'";
-	document.getElementById("demo").setAttribute("onclick", "location.href="+string);
+    var string="http://ec2-3-134-83-109.us-east-2.compute.amazonaws.com:1334/?task="+text+"&type=chat&jid="+document.getElementById("jid").value;
+    sendXHR(string, (message)=>{
+document.getElementById("demo").setAttribute("onclick", "location.href='http://localhost:3002/gotjid?aid="+message+"&myid="+document.getElementById("jid").value+"'");
+
+    });
+	//document.getElementById("demo").setAttribute("onclick", "location.href="+string);
 }
 
 </script>
