@@ -9,8 +9,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "botui": "^0.3.9",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "prompt-sync": "^4.2.0",
-    "rainbow-node-sdk": "^1.67.1"
+    "rainbow-node-sdk": "^1.67.1",
+    "xmlhttprequest": "^1.8.0"
   }
 }

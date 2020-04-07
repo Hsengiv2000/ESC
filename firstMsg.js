@@ -1,12 +1,28 @@
 let RainbowSDK = require("rainbow-node-sdk");
 
+
+var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 const express = require('express')
 const app = express()
-const port = 3001
+const cors = require("cors");
+app.use(express.static('public'))
+app.use(cors({credentials: true})); 
 
+const port = 3002
+function httpGetAsync(theUrl, callback)
+{
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.onreadystatnomechange = function() { 
+        if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+            callback(xmlHttp.responseText);
+    }
+    xmlHttp.open("GET", theUrl, true); // true for asynchronous 
+    xmlHttp.send(null);
+}
 
 
 const prompt = require('prompt-sync')({sigint: true});
+
 function createOptions(eml, pwd){
 
     let newopt = {
@@ -19,8 +35,11 @@ function createOptions(eml, pwd){
         },
         // Application identifier
         application: {
+            /*
             appID: "a08bef9055ad11eabb3887f44e39165a",
-            appSecret: "MY6oXMVM51aMUwIpTQz5DB6L0lXBcNe5VQeqKtws2NpSbCxc5sPv5pMUTiImNjjq"
+            appSecret: "MY6oXMVM51aMUwIpTQz5DB6L0lXBcNe5VQeqKtws2NpSbCxc5sPv5pMUTiImNjjq" */
+            "appID": "7c9015906de411eaa8fbfb2c1e16e226",
+            "appSecret": "c9JRxoP3dwnBF4R0siuK5LCqHnbQrnLHxl0HU6L9jyi2RGJbjHjaOuQhoPmRH7QJ"
         },
         // Logs options
         logs: {
@@ -55,7 +74,31 @@ function createOptions(eml, pwd){
 // Start the SDK
 
 let rainbowSDK;
+let agentId;
+let myId;
+app.get('/gotjid' ,(req,res)=>{
+    agentId = req.query["aid"];
+    myId = req.query["myid"];
+    res.sendfile("./signin.html");
+});
+app.get('/stop' , (req,res)=>{
+    rainbowSDK.stop();
+});
+app.get('/send',(req, res)=>{
+    var msg = req.query["msg"];
 
+    msg = msg.replace(/%%/g , " ");
+    res.send("recieved");
+    console.log(msg);
+    console.log(agentId);
+    rainbowSDK.im.sendMessageToJid(msg, agentId);
+})
+var test=[]
+app.get('/recieve',(req,res)=>{
+    let ind = parseInt(req.query["ind"]);
+    res.send({"msgs":test.slice(ind)});
+    
+});
 app.get('/signin', (req, res)=> {
   
     userEmailAccount = req.query['email'];
@@ -74,7 +117,8 @@ console.log("ready");
     //userLastname = "ssss";
     enable();
     
-    res.send("Singing in a user...... give it a minute");
+    res.sendfile("./public/index.html");
+
 
 
     
@@ -87,6 +131,15 @@ app.listen(port, () => console.log(`Example app listening at http://localhost:${
 console.log("HEE");
 
 function enable(){
+    rainbowSDK.events.on('rainbow_onstopped' , (message)=>{
+
+        console.log("stopped");
+        httpGetAsync("http://localhost:1334/disconnect?djid="+myId+"&daid="+agentId,(res)=>{console.log(res)});
+       // httpGetAsync("http://localhost:1333/disconnect");
+        
+    });
+    
+   
 console.log("sipp");
 rainbowSDK.events.on("rainbow_onready", () => {
     // Get your network's list of contacts
@@ -105,7 +158,7 @@ console.log(rainbowSDK);
         // Convert the string input to a number
         
         console.log(rainbowSDK.call);
-        //let guess = prompt("enter your question"); 
+       // let guess = prompt("enter your question"); 
        //
     
        let contacts = rainbowSDK.contacts.getAll();
@@ -118,6 +171,8 @@ console.log(rainbowSDK);
 });
 
 rainbowSDK.events.on('rainbow_onmessagereceived', (message) => {
+    test.push(message.content);
+    
 console.log(message.content);
 
 

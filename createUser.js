@@ -13,13 +13,16 @@ function createOptions(){
             host: "sandbox"
         },
         credentials: {
-            login: "rahul_parthasarathy@mymail.sutd.edu.sg", // To replace by your developer credendials
-            password: "rBNcm06IMy/0" // To replace by your developer credentials
+            login: "codmtl19@gmail.com",//"rahul_parthasarathy@mymail.sutd.edu.sg", // To replace by your developer credendials
+            password: 'cH{Kg=OzVy"9'//"rBNcm06IMy/0" // To replace by your developer credentials
         },
         // Application identifier
         application: {
+            /*
             appID: "a08bef9055ad11eabb3887f44e39165a",
-            appSecret: "MY6oXMVM51aMUwIpTQz5DB6L0lXBcNe5VQeqKtws2NpSbCxc5sPv5pMUTiImNjjq"
+            appSecret: "MY6oXMVM51aMUwIpTQz5DB6L0lXBcNe5VQeqKtws2NpSbCxc5sPv5pMUTiImNjjq"*/
+            "appID": "7c9015906de411eaa8fbfb2c1e16e226",
+            "appSecret": "c9JRxoP3dwnBF4R0siuK5LCqHnbQrnLHxl0HU6L9jyi2RGJbjHjaOuQhoPmRH7QJ"
         },
         // Logs options
         logs: {
@@ -91,7 +94,7 @@ rainbowSDK.events.on("rainbow_onready", () => {
 
 console.log("before");
 
-let prom= rainbowSDK.admin.createUserInCompany(userEmailAccount, userPassword, userFirstname, userLastname,"5e517abab4528b74a00c92a8").then((user) => {
+let prom= rainbowSDK.admin.createUserInCompany(userEmailAccount, userPassword, userFirstname, userLastname,"5e4d7408b4528b74a00c90bb").then((user) => {
     jid = user.jid_im;
     
     console.log("suppp");

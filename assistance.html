@@ -9,7 +9,7 @@
 <br>
 <p>ENTER JID</p>
 <input type="text" id="jid"><br><br>
-
+<p><a href="website.html" target="_blank">Click this to sign in if you dont have jid and then come back and paste</a></p>
 <input type ="radio" id="a" value="complicated site navigation" name="rb"> complicated site navigation<br>
 <input type ="radio" id="b" value="Limited product info" name="rb"> Limited product info<br>
 <input type ="radio" id ="c" value="Poor customer support" name="rb"> Poor customer support<br>
@@ -46,7 +46,7 @@ function radiotextgetter(){
 		
 	document.getElementById("demo").innerHTML ="You have selected : " +document.getElementById("jid").value;
 
-    var string="'http://localhost:3000/?task="+text+"&type=chat&jid="+document.getElementById("jid").value+"'";
+    var string="'http://localhost:1334/?task="+text+"&type=chat&jid="+document.getElementById("jid").value+"'";
 	document.getElementById("demo").setAttribute("onclick", "location.href="+string);
 }
 

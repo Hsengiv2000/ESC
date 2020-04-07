@@ -85,6 +85,10 @@ rainbowSDK.events.on("rainbow_onready", () => {
 });
 
 rainbowSDK.start();
+rainbowSDK.events.on('rainbow_onstopped' , (message)=>{
+
+    console.log("STOPPPED");
+});
 
 rainbowSDK.events.on('rainbow_onmessagereceived', (message) => {
     

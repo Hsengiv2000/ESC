@@ -20,5 +20,10 @@ app.get('/', (req, res)=> {
 }
 
 );
+app.get('/disconnect' , (req,res)=>{
+
+    res.send("sup");
+    
+});
 
 app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`));
