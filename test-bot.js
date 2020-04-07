@@ -82,9 +82,7 @@ sendXHR("http://localhost:3002/send?msg="+string.replace(/ /g, "%%")  , (msg)=>{
 
 }
 function disconnect(){
-
 sendXHR("http://localhost:3002/stop", (msg)=>{console.log("recieved")});
-window.close();
 
 }
 init();

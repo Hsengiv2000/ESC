@@ -78,7 +78,7 @@ app.get('/signup', (req, res)=> {
         console.log("calling this");
         res.send("save this jid: " + jid);
 
-    } , 45000);
+    } , 40000);
   
 
     
@@ -96,6 +96,7 @@ console.log("before");
 
 let prom= rainbowSDK.admin.createUserInCompany(userEmailAccount, userPassword, userFirstname, userLastname,"5e4d7408b4528b74a00c90bb").then((user) => {
     jid = user.jid_im;
+    rainbowSDK.im.sendMessageToJid("Hi Welcome to Rainbow! Our agent will be with you shortly!" , jid);
     
     console.log("suppp");
    

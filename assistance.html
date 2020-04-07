@@ -10,7 +10,7 @@
 <p>ENTER JID</p>
 <input type="text" id="jid"><br><br>
 <p><a href="website.html" target="_blank">Click this to sign in if you dont have jid and then come back and paste</a></p>
-<input type ="radio" id="a" value="complicated site navigation" name="rb"> complicated site navigation<br>
+<input type ="radio" id="a" value="complicated site navigation" name="rb" checked> complicated site navigation<br>
 <input type ="radio" id="b" value="Limited product info" name="rb"> Limited product info<br>
 <input type ="radio" id ="c" value="Poor customer support" name="rb"> Poor customer support<br>
 <input type ="radio" id = "d" value=" Disappointing page load time" name="rb"> Disappointing page load time<br>
@@ -58,7 +58,12 @@ function radiotextgetter(){
 
     var string="http://ec2-3-134-83-109.us-east-2.compute.amazonaws.com:1334/?task="+text+"&type=chat&jid="+document.getElementById("jid").value;
     sendXHR(string, (message)=>{
-document.getElementById("demo").setAttribute("onclick", "location.href='http://localhost:3002/gotjid?aid="+message+"&myid="+document.getElementById("jid").value+"'");
+    	if(message.length>70){
+document.getElementById("demo").setAttribute("onclick", "location.href='http://localhost:3002/gotjid?aid="+message+"&myid="+document.getElementById("jid").value+"'");}
+else{
+
+	document.getElementById("demo").innerHTML = message;
+}
 
     });
 	//document.getElementById("demo").setAttribute("onclick", "location.href="+string);
