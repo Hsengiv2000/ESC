@@ -21,8 +21,33 @@ function myFunction() {
 
 
 
-  document.getElementById("demo").setAttribute("onclick", "location.href="+string);
+ var pass =  document.getElementById("pwd").value;
+
+  if(hasUpperCase(pass) && hasLowerCase(pass) && symbolCheck(pass) && pass.length >7){
+  document.getElementById("demo").setAttribute("onclick", "location.href="+string);}
+  else{
+document.getElementById("demo").innerHTML = "Enter valid pwd";
+
+  }
 //style.color = "red";
+}
+function symbolCheck(str){
+
+	var splChars = "*|,\":<>[]{}`\';()@&$#%";
+for (var i = 0; i < str.length; i++) {
+    if (splChars.indexOf(str.charAt(i)) != -1){
+    return true;
+}
+
+}
+return false;
+}
+
+function hasLowerCase(str) {
+    return str.toUpperCase() != str;
+}
+function hasUpperCase(str) {
+    return str.toLowerCase() != str;
 }
 </script>
  </body>
