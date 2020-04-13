@@ -13,7 +13,17 @@ function httpGetAsync(theUrl, callback)
     console.log('vandahd');
     xmlHttp.send(null);
 }
-
+function getQueryVariable(variable) {
+    var query = window.location.search.substring(1);
+    var vars = query.split('&');
+    for (var i = 0; i < vars.length; i++) {
+        var pair = vars[i].split('=');
+        if (decodeURIComponent(pair[0]) == variable) {
+            return decodeURIComponent(pair[1]);
+        }
+    }
+    console.log('Query variable %s not found', variable);
+}
 function sendXHR(repo, cb) {
   var xhr = new XMLHttpRequest();
   var self = this;
@@ -28,7 +38,7 @@ function sendXHR(repo, cb) {
 function init() {
   console.log("supp");
  var index=0
-  setInterval(function(){sendXHR("http://localhost:3002/recieve?ind="+index.toString(), (msg)=>{
+  setInterval(function(){sendXHR("http://localhost:3002/recieve?ind="+index.toString()+"&jid="+getQueryVariable("jid"), (msg)=>{
  console.log(msg);
  console.log(index);
  
@@ -62,6 +72,7 @@ function humanMsg(msg){
 
 }
 function send(){
+  console.log(getQueryVariable("jid"));
 
 getText();
 
@@ -77,7 +88,7 @@ function getText(){
 console.log(4);
 var string = document.getElementById("input").value;
 humanMsg(string);
-sendXHR("http://localhost:3002/send?msg="+string.replace(/ /g, "%%")  , (msg)=>{console.log("recieved")});
+sendXHR("http://localhost:3002/send?msg="+string.replace(/ /g, "%%") +"&jid="+getQueryVariable("jid")  , (msg)=>{console.log("recieved")});
 
 
 }

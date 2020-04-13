@@ -17,9 +17,13 @@
 <input type ="radio" id = "e" value="Unattractive website layout" name="rb"> Unattractive website layout<br>
 <input type ="radio" id = "f" value = "none of the above" name="rb"> none of the above<br><br>
 
-  
+<p>ENTER EMAIL</p>
+<input type="text" id="email"><br>
+<p>ENTER PASSWORD</p>
+<input type="password" id="password"><br>
 
 <p id="demo" onclick = "radiotextgetter()">click me</p>
+
 <script>
 function message() {
   alert("You have completed the form! Thanks for your help in making our service better");
@@ -56,13 +60,23 @@ function radiotextgetter(){
 		
 	document.getElementById("demo").innerHTML ="You have selected : " +document.getElementById("jid").value;
 
+	var jid = document.getElementById("jid").value;
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
     var string="http://ec2-18-223-16-89.us-east-2.compute.amazonaws.com:1334/?task="+text+"&type=chat&jid="+document.getElementById("jid").value;
     sendXHR(string, (message)=>{
-    	if(message.length>70){
-document.getElementById("demo").setAttribute("onclick", "location.href='http://localhost:3002/gotjid?aid="+message+"&myid="+document.getElementById("jid").value+"'");}
+    	
+    		if(email.length > 0 && password.length >0 && jid.length>12){
+    			if(message.length>70){
+document.getElementById("demo").setAttribute("onclick", "location.href='http://localhost:3002/gotjid?aid="+message+"&myid="+document.getElementById("jid").value+"&email="+email+"&pwd="+password+"'");}
+			else{
+				document.getElementById("demo").innerHTML = message;
+			}
+                            }
 else{
+	document.getElementById("demo").innerHTML = "PLS ENTER EMAIL AND PASSWORD";
 
-	document.getElementById("demo").innerHTML = message;
+	
 }
 
     });

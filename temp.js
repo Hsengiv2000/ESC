@@ -19,6 +19,10 @@ function httpGetAsync(theUrl, callback)
     xmlHttp.open("GET", theUrl, true); // true for asynchronous 
     xmlHttp.send(null);
 }
+
+
+const prompt = require('prompt-sync')({sigint: true});
+
 function createOptions(eml, pwd){
 
     let newopt = {
@@ -65,88 +69,17 @@ function createOptions(eml, pwd){
     return newopt;
 }
 
-const prompt = require('prompt-sync')({sigint: true});
-class RainbowUsers{
-
-
-    initSDK(options)
-    {
-        this.rainbowSDK  = new RainbowSDK(options);
-        this.test=[];
-        this.rainbowSDK.start();
-        this.enable();
-    }
-
-    constructor(aid, jid)
-    {
-        this.myId = jid;
-        this.agentId = aid;
-    }
-    send(msg)
-    {
-        this.rainbowSDK.im.sendMessageToJid(msg, this.agentId).then((mssg)=>{console.log(mssg)});
-    }
-    enable()
-    {
-        this.rainbowSDK.events.on('rainbow_onstopped' , (message)=>{
-    
-            console.log("stopped");
-            httpGetAsync("http://ec2-18-223-16-89.us-east-2.compute.amazonaws.com:1334/disconnect?djid="+this.myId+"&daid="+this.agentId,(res)=>{console.log(res)});
-           // httpGetAsync("http://localhost:1333/disconnect");
-            
-        });
-        
-       
-    console.log("sipp");
-    this.rainbowSDK.events.on("rainbow_onready", () => {
-        // Get your network's list of contacts
-    console.log(this.rainbowSDK);
-        // Do something with this list
-        console.log("HELLOFROMTHEOTHERSIDE");
-        //console.log(contacts);
-    
-        var i =10;
-        var index = 0;
-      
-        console.log('in here');
-        
-         
-    });
-    
-    this.rainbowSDK.events.on('rainbow_onmessagereceived', (message) => {
-        if(message.fromJid == this.agentId){
-        this.test.push(message.content);
-        console.log(message.fromJid);
-        }
-    console.log(message.content);
-    
-    
-      
-    });     }
-}
-
-
 
 
 // Start the SDK
-let users = new Object();
 
+let rainbowSDK;
+let agentId;
+let myId;
 app.get('/gotjid' ,(req,res)=>{
     agentId = req.query["aid"];
     myId = req.query["myid"];
-    userEmailAccount = req.query['email'];
-    userPassword = req.query['pwd'];
-    console.log(agentId, myId, userEmailAccount, userPassword);
-    var user = new RainbowUsers(agentId, myId);
-    user.initSDK(createOptions(userEmailAccount,userPassword));
-    users[myId] =  user;
-    console.log(users);
-    res.redirect("/chat?jid="+myId);
-});
-app.get('/chat' , (req,res)=>{
-
-    res.sendfile("./public/index.html");
-
+    res.sendfile("./signin.html");
 });
 app.get('/stop' , (req,res)=>{
     rainbowSDK.stop();
@@ -154,21 +87,17 @@ app.get('/stop' , (req,res)=>{
 });
 app.get('/send',(req, res)=>{
     var msg = req.query["msg"];
-    var id = req.query["jid"];
 
     msg = msg.replace(/%%/g , " ");
     res.send("recieved");
     console.log(msg);
-    users[id].send(msg);
-    
+    console.log(agentId);
+    rainbowSDK.im.sendMessageToJid(msg, agentId);
 })
-
+var test=[]
 app.get('/recieve',(req,res)=>{
     let ind = parseInt(req.query["ind"]);
-    let id = req.query["jid"];
-     
-   //console.log(users[id])
-    res.send({"msgs":users[id].test.slice(ind)});
+    res.send({"msgs":test.slice(ind)});
     
 });
 app.get('/signin', (req, res)=> {
@@ -182,10 +111,12 @@ app.get('/signin', (req, res)=> {
 
 // Instantiate the SDK
 
- 
+ rainbowSDK = new RainbowSDK(options);
+ready=true;
 console.log("ready");
     rainbowSDK.start();
-    
+    //userLastname = "ssss";
+    enable();
     
     res.sendfile("./public/index.html");
 
@@ -200,7 +131,55 @@ app.listen(port, () => console.log(`Example app listening at http://localhost:${
 
 console.log("HEE");
 
+function enable(){
+    rainbowSDK.events.on('rainbow_onstopped' , (message)=>{
 
+        console.log("stopped");
+        httpGetAsync("http://ec2-18-223-16-89.us-east-2.compute.amazonaws.com:1334/disconnect?djid="+myId+"&daid="+agentId,(res)=>{console.log(res)});
+       // httpGetAsync("http://localhost:1333/disconnect");
+        
+    });
+    
+   
+console.log("sipp");
+rainbowSDK.events.on("rainbow_onready", () => {
+    // Get your network's list of contacts
+console.log(rainbowSDK);
+    // Do something with this list
+    console.log("HELLOFROMTHEOTHERSIDE");
+    //console.log(contacts);
+    ready = true;
+        console.log(ready);
+    var i =10;
+    var index = 0;
+  
+        console.log('in here');
+        // Get user input
+     
+        // Convert the string input to a number
+        
+        console.log(rainbowSDK.call);
+       // let guess = prompt("enter your question"); 
+       //
+    
+       let contacts = rainbowSDK.contacts.getAll();
+      // console.log(contacts);
+      // var hadnle =rainbowSDK.webRTC.callInAudio(contacts[0]);
+      // var release= rainbowSDK.telephony.makeCall("10582773945003141" , "sup");
+     
+
+      // console.log(rainbowSDK.calllog.getAll());
+});
+
+rainbowSDK.events.on('rainbow_onmessagereceived', (message) => {
+    if(message.fromJid == agentId){
+    test.push(message.content);
+    }
+console.log(message.content);
+
+
+  
+});     }
 
 
 
