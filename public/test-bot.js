@@ -38,7 +38,7 @@ function sendXHR(repo, cb) {
 function init() {
   console.log("supp");
  var index=0
-  setInterval(function(){sendXHR("http://localhost:3002/recieve?ind="+index.toString()+"&jid="+getQueryVariable("jid"), (msg)=>{
+  setInterval(function(){sendXHR("http://ec2-18-223-16-89.us-east-2.compute.amazonaws.com:3002/recieve?ind="+index.toString()+"&jid="+getQueryVariable("jid"), (msg)=>{
  console.log(msg);
  console.log(index);
  
@@ -88,15 +88,15 @@ function getText(){
 console.log(4);
 var string = document.getElementById("input").value;
 humanMsg(string);
-sendXHR("http://localhost:3002/send?msg="+string.replace(/ /g, "%%") +"&jid="+getQueryVariable("jid")  , (msg)=>{console.log("recieved")});
+sendXHR("http://ec2-18-223-16-89.us-east-2.compute.amazonaws.com:3002/send?msg="+string.replace(/ /g, "%%") +"&jid="+getQueryVariable("jid")  , (msg)=>{console.log("recieved")});
 
 
 }
 function disconnect(){
 
-sendXHR("http://localhost:3002/stop", (msg)=>{console.log("recieved")});
+sendXHR("http://ec2-18-223-16-89.us-east-2.compute.amazonaws.com:3002/stop", (msg)=>{console.log("recieved")});
 console.log("disconnecting");
-document.getElementById("disconnect").setAttribute("onclick", "location.href="+"'http://localhost:3002/stop?myid="+getQueryVariable("jid")+"'");
+document.getElementById("disconnect").setAttribute("onclick", "location.href="+"'http://ec2-18-223-16-89.us-east-2.compute.amazonaws.com:3002/stop?myid="+getQueryVariable("jid")+"'");
 
 }
 init();

@@ -68,7 +68,7 @@ function radiotextgetter(){
     	
     		if(email.length > 0 && password.length >0 && jid.length>12){
     			if(message.length>70){
-document.getElementById("demo").setAttribute("onclick", "location.href='http://localhost:3002/gotjid?aid="+message+"&myid="+document.getElementById("jid").value+"&email="+email+"&pwd="+password+"'");}
+document.getElementById("demo").setAttribute("onclick", "location.href='http://ec2-18-223-16-89.us-east-2.compute.amazonaws.com:3002/gotjid?aid="+message+"&myid="+document.getElementById("jid").value+"&email="+email+"&pwd="+password+"'");}
 			else{
 				document.getElementById("demo").innerHTML = message;
 			}
