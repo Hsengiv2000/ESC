@@ -96,7 +96,7 @@ function disconnect(){
 
 sendXHR("http://localhost:3002/stop", (msg)=>{console.log("recieved")});
 console.log("disconnecting");
-document.getElementById("disconnect").setAttribute("onclick", "location.href="+"'http://localhost:3002/stop'");
+document.getElementById("disconnect").setAttribute("onclick", "location.href="+"'http://localhost:3002/stop?myid="+getQueryVariable("jid")+"'");
 
 }
 init();

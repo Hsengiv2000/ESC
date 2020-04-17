@@ -92,6 +92,7 @@ class RainbowUsers{
     
             console.log("stopped");
             httpGetAsync("http://ec2-18-223-16-89.us-east-2.compute.amazonaws.com:1334/disconnect?djid="+this.myId+"&daid="+this.agentId,(res)=>{console.log(res)});
+           // this.rainbowSDK.stop();
            // httpGetAsync("http://localhost:1333/disconnect");
             
         });
@@ -149,8 +150,9 @@ app.get('/chat' , (req,res)=>{
 
 });
 app.get('/stop' , (req,res)=>{
-    rainbowSDK.stop();
-    res.sendfile("./fashion.html");
+    myId = req.query["myid"];
+    users[myId].rainbowSDK.stop();
+    res.sendfile("./public/fashion.html");
 });
 app.get('/send',(req, res)=>{
     var msg = req.query["msg"];
@@ -171,6 +173,7 @@ app.get('/recieve',(req,res)=>{
     res.send({"msgs":users[id].test.slice(ind)});
     
 });
+/*
 app.get('/signin', (req, res)=> {
   
     userEmailAccount = req.query['email'];
@@ -182,7 +185,7 @@ app.get('/signin', (req, res)=> {
 
 // Instantiate the SDK
 
- 
+
 console.log("ready");
     rainbowSDK.start();
     
@@ -195,7 +198,11 @@ console.log("ready");
 }
 
 );
-
+*/
+app.get('/home' , (req,res)=>{
+   console.log("sup");
+    res.sendfile("./public/fashion.html");
+ });
 app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`))
 
 console.log("HEE");
