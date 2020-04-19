@@ -1,0 +1,123 @@
+body {
+    background-color: #FFFFFF;
+    margin:0;
+    height:100%;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;;
+    font-size: 16px;
+    padding: 10px 20px;
+    height: 100px;
+}
+
+a.assist-link {
+    color: #5D5C61;
+    text-decoration: none;
+    font-family: Montserrat,Arial,Helvetica,sans-serif;
+}
+
+.header.right-bar > img {
+    max-height: 100%;
+    max-width: 100%;
+    display: block;
+}
+
+.nav-bar {
+    display: flex;
+    justify-content: center;
+    background-color: #7395AE;
+}
+
+a.c {
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 0px 25px;
+    font-family: Montserrat,Arial,Helvetica,sans-serif;
+}
+
+
+.form-container {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 5px auto;
+    color: #5d5c61;
+    font-family: 'Lato', helvetica, sans-serif;
+}
+
+.form-container .form-image {
+    max-width: 600px;
+}
+
+.form-container .form-image > h1 {
+    font-family: 'Lato', helvetica, sans-serif;
+    text-align: center;
+    font-size: 48px;
+}
+.form-container .form-image > p {
+    font-family: 'Lato', helvetica, sans-serif;
+    text-align: center;
+    font-size: 22px;
+    line-height: 2rem;
+}
+
+.form-container .form-main {
+    padding-top: 60px;
+    padding-left: 60px;
+    width: 400px;
+}
+
+.form-container .form-main .form > p {
+    line-height: 18px;
+    font-size: 22px;
+}
+
+.form-container .form-main .form .sign-up {
+    font-size: 12px;
+}
+
+.form-container .form-main .form .sign-up > a{
+    color: #557A95;
+}
+
+.form-main .filler {
+    width: 480px;
+}
+
+input[type="text"] {
+    border: 2px solid #557A95;
+    border-radius: 5px;
+    height: 30px;
+    width: 250px;
+}
+
+input[type="password"] {
+    border: 2px solid #557A95;
+    border-radius: 5px;
+    height: 30px;
+    width: 250px;
+}
+
+.form-container .form-category {
+    padding-top: 30px;
+}
+
+.form-container .form-category > p {
+    line-height: 18px;
+    font-size: 22px;
+}
+
+.form-container .form-category .connect {
+    line-height: 18px;
+    font-size: 22px;
+    color: #FFFFFF;
+    background-color: #557A95;
+    border-radius: 3px;
+    width: fit-content;
+    padding: 10px 10px;
+}
