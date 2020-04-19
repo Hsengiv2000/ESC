@@ -1,0 +1,89 @@
+<html>
+<head>
+<title>Assistance</title>
+<link rel="stylesheet" type="text/css" href= "Rahul.css">
+</head>
+<body>
+<h1>Please fill in the given checkbox</h1>
+<h5>The data provided will help us provide better services and improve the functioning of the website </h5>
+<br>
+<p>ENTER JID</p>
+<input type="text" id="jid"><br><br>
+<p><a href="website.html" target="_blank">Click this to sign in if you dont have jid and then come back and paste</a></p>
+<input type ="radio" id="a" value="complicated site navigation" name="rb" checked> complicated site navigation<br>
+<input type ="radio" id="b" value="Limited product info" name="rb"> Limited product info<br>
+<input type ="radio" id ="c" value="Poor customer support" name="rb"> Poor customer support<br>
+<input type ="radio" id = "d" value=" Disappointing page load time" name="rb"> Disappointing page load time<br>
+<input type ="radio" id = "e" value="Unattractive website layout" name="rb"> Unattractive website layout<br>
+<input type ="radio" id = "f" value = "none of the above" name="rb"> none of the above<br><br>
+
+<p>ENTER EMAIL</p>
+<input type="text" id="email"><br>
+<p>ENTER PASSWORD</p>
+<input type="password" id="password"><br>
+
+<p id="demo" onclick = "radiotextgetter()">click me</p>
+
+<script>
+function message() {
+  alert("You have completed the form! Thanks for your help in making our service better");
+}
+function sendXHR(repo, cb) {
+  var xhr = new XMLHttpRequest();
+  var self = this;
+  xhr.open('GET',  repo);
+  xhr.onload = function () {
+    var res = xhr.responseText;
+    cb(res);
+  }
+  xhr.send();
+}
+function radiotextgetter(){
+    var text="F";
+	if(document.getElementById("a").checked==true)
+		text="A";
+		//document.getElementById("demo").innerHTML = document.getElementById("a").value;
+	if(document.getElementById("b").checked==true)
+		text= "B";
+		//document.getElementById("demo").innerHTML = document.getElementById("b").value;
+	if(document.getElementById("c").checked==true)
+		text="C";
+		//document.getElementById("demo").innerHTML = document.getElementById("c").value;
+	if(document.getElementById("d").checked==true)
+		text="D";
+		//document.getElementById("demo").innerHTML = document.getElementById("d").value;
+	if(document.getElementById("e").checked==true)
+		text="E";
+		//document.getElementById("demo").innerHTML = document.getElementById("e").value;
+	if(document.getElementById("f").checked==true)
+		text="F";
+		
+	document.getElementById("demo").innerHTML ="You have selected : " +document.getElementById("jid").value;
+
+	var jid = document.getElementById("jid").value;
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
+    var string="http://ec2-18-223-16-89.us-east-2.compute.amazonaws.com:1334/?task="+text+"&type=chat&jid="+document.getElementById("jid").value;
+    sendXHR(string, (message)=>{
+    	
+    		if(email.length > 0 && password.length >0 && jid.length>12){
+    			if(message.length>70){
+document.getElementById("demo").setAttribute("onclick", "location.href='http://ec2-18-223-16-89.us-east-2.compute.amazonaws.com:3002/gotjid?aid="+message+"&myid="+document.getElementById("jid").value+"&email="+email+"&pwd="+password+"'");}
+			else{
+				document.getElementById("demo").innerHTML = message;
+			}
+                            }
+else{
+	document.getElementById("demo").innerHTML = "PLS ENTER EMAIL AND PASSWORD";
+
+	
+}
+
+    });
+	//document.getElementById("demo").setAttribute("onclick", "location.href="+string);
+}
+
+</script>
+<h5> Thank you for your cooperation and sorry for any inconvenience caused</h5>
+</body>
+</html>

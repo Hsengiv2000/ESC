@@ -5,7 +5,9 @@ var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 const express = require('express')
 const app = express()
 const cors = require("cors");
-app.use(express.static('public'))
+var compression = require('compression');
+app.use(compression());
+app.use(express.static('public',{maxAge: 86400000}))
 app.use(cors({credentials: true})); 
 
 const port = 3002
