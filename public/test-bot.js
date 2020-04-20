@@ -83,7 +83,7 @@ getText();
 document.getElementById("input").value = "";
 }
 else{
-alert("Pls wait for an agent to be available, agent will automaticall ymessage.");
+alert("Pls wait for an agent to be available, agent will automatically message.");
 }
 
 }
