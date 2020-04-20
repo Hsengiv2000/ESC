@@ -133,7 +133,14 @@ class RainbowUsers{
 
 // Start the SDK
 let users = new Object();
+app.get('/updatejid' , (req,res)=>{
 
+agentId = req.query["aid"];
+myId = req.query["cid"];
+users[myId].agentId = agentId;
+res.send("updated");
+
+});
 app.get('/gotjid' ,(req,res)=>{
     agentId = req.query["aid"];
     myId = req.query["myid"];
@@ -144,7 +151,12 @@ app.get('/gotjid' ,(req,res)=>{
     user.initSDK(createOptions(userEmailAccount,userPassword));
     users[myId] =  user;
     console.log(users);
-    res.redirect("/chat?jid="+myId);
+    if(agentId.length >70){
+     
+     res.redirect("/chat?jid="+myId+"&flag=true");
+     }
+    else{res.redirect("/chat?jid="+myId+"&flag=false");}
+    
 });
 app.get('/chat' , (req,res)=>{
 

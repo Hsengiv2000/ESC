@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>MARJ - Assistance</title>
+		<title>MARJ - Assitance</title>
 		<link rel="stylesheet" type="text/css" href= "assist-page.css">
 	</head>
 	<body>
@@ -83,7 +83,7 @@
 							if(document.getElementById("f").checked==true)
 								text="F";
 								
-							document.getElementById("demo").innerHTML ="LOADING.....";//"You have selected : " +document.getElementById("jid").value;
+							document.getElementById("demo").innerHTML ="You have selected : " +document.getElementById("jid").value;
 				
 							var jid = document.getElementById("jid").value;
 							var email = document.getElementById("email").value;
@@ -91,15 +91,16 @@
 							var string="http://ec2-18-223-16-89.us-east-2.compute.amazonaws.com:1334/?task="+text+"&type=chat&jid="+document.getElementById("jid").value;
 								
 									if(email.length > 0 && password.length >0 && jid.length>12){
-								sendXHR(string, (message)=>{
-									if(message.length>70 || message==="PleaseQueue"){
-						document.getElementById("demo").innerHTML = "You are set! Click once more to connect: "+message;
+							
+			sendXHR(string, (message)=>{
+								
+						if(message.length>70){
 						document.getElementById("demo").setAttribute("onclick", "location.href='http://ec2-18-223-16-89.us-east-2.compute.amazonaws.com:3002/gotjid?aid="+message+"&myid="+document.getElementById("jid").value+"&email="+email+"&pwd="+password+"'");}
 									else{
 										document.getElementById("demo").innerHTML = message;
 									}
 													});
-						}else{
+						else{
 							document.getElementById("demo").innerHTML = "PLS ENTER EMAIL AND PASSWORD";
 				
 							

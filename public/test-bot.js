@@ -34,17 +34,19 @@ function sendXHR(repo, cb) {
   }
   xhr.send();
 }
-
+let flag = getQueryVariable("flag");
 function init() {
   console.log("supp");
  var index=0
   setInterval(function(){sendXHR("http://ec2-18-223-16-89.us-east-2.compute.amazonaws.com:3002/recieve?ind="+index.toString()+"&jid="+getQueryVariable("jid"), (msg)=>{
  console.log(msg);
  console.log(index);
+
  
 for(let i = 0; i < msg["msgs"].length;i++){
     botMsg(msg["msgs"][i]);
-  index+=1;}
+  index+=1;
+}
     
 
   });} , 2000);
@@ -67,14 +69,19 @@ function humanMsg(msg){
    botui.message.add({
     human:true,
         content: msg
-
+flag = "true";
       });
 
 }
 function send(){
   console.log(getQueryVariable("jid"));
-
+if(flag.equals("true")){
 getText();
+document.getElementById("input").value = "";
+}
+else{
+alert("Pls wait for an agent to be available, agent will automaticall ymessage.");
+}
 
 }
 function botMsg(msg){
