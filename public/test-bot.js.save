@@ -34,11 +34,10 @@ function sendXHR(repo, cb) {
   }
   xhr.send();
 }
+let flag = getQueryVariable("flag");
 function init() {
   console.log("supp");
  var index=0
-flag = getQueryVariable("flag");
-
   setInterval(function(){sendXHR("http://ec2-18-223-16-89.us-east-2.compute.amazonaws.com:3002/recieve?ind="+index.toString()+"&jid="+getQueryVariable("jid"), (msg)=>{
  console.log(msg);
  console.log(index);
@@ -76,9 +75,8 @@ function humanMsg(msg){
 
 }
 function send(){
-console.log("yoooo");
   console.log(getQueryVariable("jid"));
-if(flag==="true"){
+if(flag.equals("true")){
 getText();
 document.getElementById("input").value = "";
 }

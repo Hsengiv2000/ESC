@@ -7,7 +7,7 @@ const app = express()
 const cors = require("cors");
 var compression = require('compression');
 app.use(compression());
-app.use(express.static('public',{maxAge: 86400000}))
+app.use(express.static('public'));
 app.use(cors({credentials: true})); 
 
 const port = 3002
