@@ -121,10 +121,12 @@ class RainbowUsers{
     
     this.rainbowSDK.events.on('rainbow_onmessagereceived', (message) => {
         if(message.fromJid == this.agentId || message.fromJid =="5e0d870daebd4ad7bff9a9b34fd53bfe@sandbox-all-in-one-rbx-prod-1.rainbow.sbg"){
-        this.test.push(message.content);
+       
 if(message.fromJid =="5e0d870daebd4ad7bff9a9b34fd53bfe@sandbox-all-in-one-rbx-prod-1.rainbow.sbg"){this.agentId = message.content;}
         console.log(message.fromJid);
+ this.test.push("Hi How may I help you?");
         }
+else{this.test.push(message.content);}
     console.log(message.fromJid + "  " + this.agentId);
     console.log(message.content);
     
