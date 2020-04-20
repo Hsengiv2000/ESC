@@ -1,0 +1,102 @@
+var loadingMsgIndex,
+    botui = new BotUI('stars-bot'),
+    API = '';
+function httpGetAsync(theUrl, callback)
+{  console.log('here');
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.onreadystatnomechange = function() { 
+        if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+            callback(xmlHttp.responseText);
+    }
+    xmlHttp.open("GET", theUrl, true); // true for asynchronous 
+    //xmlHttp.withCredentials = true;
+    console.log('vandahd');
+    xmlHttp.send(null);
+}
+function getQueryVariable(variable) {
+    var query = window.location.search.substring(1);
+    var vars = query.split('&');
+    for (var i = 0; i < vars.length; i++) {
+        var pair = vars[i].split('=');
+        if (decodeURIComponent(pair[0]) == variable) {
+            return decodeURIComponent(pair[1]);
+        }
+    }
+    console.log('Query variable %s not found', variable);
+}
+function sendXHR(repo, cb) {
+  var xhr = new XMLHttpRequest();
+  var self = this;
+  xhr.open('GET', API + repo);
+  xhr.onload = function () {
+    var res = JSON.parse(xhr.responseText);
+    cb(res);
+  }
+  xhr.send();
+}
+
+function init() {
+  console.log("supp");
+ var index=0
+  setInterval(function(){sendXHR("http://ec2-18-223-16-89.us-east-2.compute.amazonaws.com:3002/recieve?ind="+index.toString()+"&jid="+getQueryVariable("jid"), (msg)=>{
+ console.log(msg);
+ console.log(index);
+ 
+for(let i = 0; i < msg["msgs"].length;i++){
+    botMsg(msg["msgs"][i]);
+  index+=1;}
+    
+
+  });} , 2000);
+  
+
+ 
+  
+
+}
+
+function showStars(stars) {
+  botui.message
+  .update(loadingMsgIndex, {
+    content: stars
+  })
+  .then(init); // ask again for repo. Keep in loop.
+}
+function humanMsg(msg){
+
+   botui.message.add({
+    human:true,
+        content: msg
+
+      });
+
+}
+function send(){
+  console.log(getQueryVariable("jid"));
+
+getText();
+
+}
+function botMsg(msg){
+
+  botui.message.add({
+
+    content: msg
+  });
+}
+function getText(){
+console.log(4);
+var string = document.getElementById("input").value;
+humanMsg(string);
+sendXHR("http://ec2-18-223-16-89.us-east-2.compute.amazonaws.com:3002/send?msg="+string.replace(/ /g, "%%") +"&jid="+getQueryVariable("jid")  , (msg)=>{console.log("recieved")});
+
+
+}
+function disconnect(){
+
+sendXHR("http://ec2-18-223-16-89.us-east-2.compute.amazonaws.com:3002/stop", (msg)=>{console.log("recieved")});
+console.log("disconnecting");
+document.getElementById("disconnect").setAttribute("onclick", "location.href="+"'http://ec2-18-223-16-89.us-east-2.compute.amazonaws.com:3002/stop?myid="+getQueryVariable("jid")+"'");
+
+}
+init();

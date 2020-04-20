@@ -1,54 +1,78 @@
 <!DOCTYPE html>
- <html>
- <head>
- 	<title>sup</title>
- </head>
- <body>
- <p>enter first name</p>
- <input type="text" id="fname" ><br><br>
- <p>enter last name</p>
- <input type="text" id="lname" ><br><br>
- <p>enter email</p>
- <input type="text" id="email" ><br><br>
- <p>enter Password</p>
- <input type="password" id="pwd" ><br><br>
- <p id="demo" onclick="myFunction()" >Click me to submit.</p>
+<html>
+    <head>
+        <title>MARJ - JID Registration</title>
+        <link rel="stylesheet" type="text/css" href= "website.css">
+    </head>
 
-<script>
-function myFunction() {
-  document.getElementById("demo").innerHTML = "click again";
-  var string = "'http://ec2-18-223-16-89.us-east-2.compute.amazonaws.com:3000/signup?fname="+document.getElementById("fname").value +"&lname="+document.getElementById("lname").value+"&email="+document.getElementById("email").value+"&password="+document.getElementById("pwd").value+"'";
+    <body>
+        <div class="header">
+            <div class="assistance">
+                <a href = "assistance.html" class ="assist-link"> Need assistance?</a>
+            </div>
+            <div class="logo"><img src="logo.png"></div>
+            <div class="right-bar"><img src="right-bar.png"></div>
+		</div>
+		
+		<div class="nav-bar">
+            <a href = "catalogue.html" class = "c" >Catalogue</a> 
+            <a href = "Latest.html" class = "c" >Latest designs</a>
+            <a href = "Male.html" class="c" >Male</a>
+			<a href = "Female.html" class= "c">Female</a>
+			<a href = "assistance.html" class= "c">Help</a>
+        </div>
+
+        <h1 class="title">JID Registration</h1>
+
+        <div class="form-container">
+            Fill in the form below to register for a JID
+            <p>First Name</p>
+            <input type="text" id="fname" ><br><br>
+            <p>Last Name</p>
+            <input type="text" id="lname" ><br><br>
+            <p>Email Address</p>
+            <input type="text" id="email" ><br><br>
+            <p>Password</p>
+            <input type="password" id="pwd" ><br><br>
+            <p id="demo" class="submit" onclick="myFunction()" >Submit</p>
+            <script>
+            function myFunction() {
+                document.getElementById("demo").innerHTML = "click again";
+                var string = "'http://ec2-18-223-16-89.us-east-2.compute.amazonaws.com:3000/signup?fname="+document.getElementById("fname").value +"&lname="+document.getElementById("lname").value+"&email="+document.getElementById("email").value+"&password="+document.getElementById("pwd").value+"'";
 
 
 
- var pass =  document.getElementById("pwd").value;
+            var pass =  document.getElementById("pwd").value;
 
-  if(hasUpperCase(pass) && hasLowerCase(pass) && symbolCheck(pass) && pass.length >7){
-  document.getElementById("demo").setAttribute("onclick", "location.href="+string);}
-  else{
-document.getElementById("demo").innerHTML = "Enter valid pwd";
+                if(hasUpperCase(pass) && hasLowerCase(pass) && symbolCheck(pass) && pass.length >7){
+                document.getElementById("demo").setAttribute("onclick", "location.href="+string);}
+                else{
+            document.getElementById("demo").innerHTML = "Enter valid pwd";
 
-  }
-//style.color = "red";
-}
-function symbolCheck(str){
+                }
+            //style.color = "red";
+            }
+            function symbolCheck(str){
 
-	var splChars = "*|,\":<>[]{}`\';()@&$#%";
-for (var i = 0; i < str.length; i++) {
-    if (splChars.indexOf(str.charAt(i)) != -1){
-    return true;
-}
+                var splChars = "*|,\":<>[]{}`\';()@&$#%";
+            for (var i = 0; i < str.length; i++) {
+                if (splChars.indexOf(str.charAt(i)) != -1){
+                return true;
+            }
 
-}
-return false;
-}
+            }
+            return false;
+            }
 
-function hasLowerCase(str) {
-    return str.toUpperCase() != str;
-}
-function hasUpperCase(str) {
-    return str.toLowerCase() != str;
-}
-</script>
- </body>
- </html>
+            function hasLowerCase(str) {
+                return str.toUpperCase() != str;
+            }
+            function hasUpperCase(str) {
+                return str.toLowerCase() != str;
+            }
+            </script>
+        </div>
+        
+        
+    </body>
+</html>

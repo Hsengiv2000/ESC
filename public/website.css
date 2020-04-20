@@ -2,6 +2,8 @@ body {
     background-color: #FFFFFF;
     margin:0;
     height:100%;
+    font-family: 'Lato', helvetica, sans-serif;
+
 }
 
 .header {
@@ -41,59 +43,27 @@ a.c {
     font-family: Montserrat,Arial,Helvetica,sans-serif;
 }
 
-
-.form-container {
-    display: flex;
-    justify-content: space-evenly;
-    margin: 5px auto;
-    color: #5d5c61;
-    font-family: 'Lato', helvetica, sans-serif;
-}
-
-.form-container .form-image {
-    max-width: 600px;
-}
-
-.form-container .form-image > h1 {
-    font-family: 'Lato', helvetica, sans-serif;
+.title {
     text-align: center;
     font-size: 48px;
 }
-.form-container .form-image > p {
-    font-family: 'Lato', helvetica, sans-serif;
-    text-align: center;
-    font-size: 22px;
-    line-height: 2rem;
+
+.form-container {
+    width: 50%;
+    margin: 0 auto;
+    font-size: 28px;
 }
 
-.form-container .form-main {
-    padding-top: 60px;
-    padding-left: 60px;
-    width: 400px;
-}
-
-.form-container .form-main .form > p {
+.form-container > p {
     line-height: 18px;
-    font-size: 22px;
-}
-
-.form-container .form-main .form .sign-up {
-    font-size: 12px;
-}
-
-.form-container .form-main .form .sign-up > a{
-    color: #557A95;
-}
-
-.form-main .filler {
-    width: 480px;
+    font-size: 21px;
 }
 
 input[type="text"] {
     border: 2px solid #557A95;
     border-radius: 5px;
     height: 30px;
-    width: 250px;
+    width: 600px;
     padding-left: 5px;
 }
 
@@ -101,20 +71,11 @@ input[type="password"] {
     border: 2px solid #557A95;
     border-radius: 5px;
     height: 30px;
-    width: 250px;
+    width: 600px;
     padding-left: 5px;
 }
 
-.form-container .form-category {
-    padding-top: 30px;
-}
-
-.form-container .form-category > p {
-    line-height: 18px;
-    font-size: 22px;
-}
-
-.form-container .form-category .connect {
+.submit {
     line-height: 18px;
     font-size: 22px;
     color: #FFFFFF;

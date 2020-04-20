@@ -1,0 +1,118 @@
+<html>
+	<head>
+		<title>MARJ - Assitance</title>
+		<link rel="stylesheet" type="text/css" href= "assist-page.css">
+	</head>
+	<body>
+		<div class="header">
+            <div class="assistance">
+                <a href = "assistance.html" class ="assist-link"> Need assistance?</a>
+            </div>
+            <div class="logo"><img src="logo.png"></div>
+            <div class="right-bar"><img src="right-bar.png"></div>
+		</div>
+		
+		<div class="nav-bar">
+            <a href = "catalogue.html" class = "c" >Catalogue</a> 
+            <a href = "Latest.html" class = "c" >Latest designs</a>
+            <a href = "Male.html" class="c" >Male</a>
+			<a href = "Female.html" class= "c">Female</a>
+			<a href = "assistance.html" class= "c">Help</a>
+		</div>
+
+		<div class="form-container">
+			
+			<div class="form-image">
+				<h1>Contact our support team</h1>
+				<p>Our team is happy to answer your questions. Fill out the form to help us find a better agent to suit your needs.</p>
+				<img src="support.jpg">
+			</div>
+
+			<div class="form-main">
+				<div class="form">
+					<p>Enter your JID</p>
+					<input type="text" id="jid">
+					<p class="sign-up">Don't have a JID? <a href="website.html" target="_blank">Sign up here</a></p>
+					
+					<p>Email</p>
+					<input type="text" id="email"><br>
+					<p>Password</p>
+					<input type="password" id="password">
+				</div>
+				<div class="form-category">
+					<p>How can we help you?</p>
+					<input type ="radio" id="a" value="complicated site navigation" name="rb" checked> complicated site navigation<br>
+					<input type ="radio" id="b" value="Limited product info" name="rb"> Limited product info<br>
+					<input type ="radio" id="c" value="Poor customer support" name="rb"> Poor customer support<br>
+					<input type ="radio" id="d" value=" Disappointing page load time" name="rb"> Disappointing page load time<br>
+					<input type ="radio" id="e" value="Unattractive website layout" name="rb"> Unattractive website layout<br>
+					<input type ="radio" id="f" value="none of the above" name="rb"> none of the above<br><br>
+				
+					<p id="demo" class="connect" onclick = "radiotextgetter()">Connect</p>
+					<script>
+						function message() {
+						alert("You have completed the form! Thanks for your help in making our service better");
+						}
+						function sendXHR(repo, cb) {
+						var xhr = new XMLHttpRequest();
+						var self = this;
+						xhr.open('GET',  repo);
+						xhr.onload = function () {
+							var res = xhr.responseText;
+							cb(res);
+						}
+						xhr.send();
+						}
+						function radiotextgetter(){
+							var text="F";
+							if(document.getElementById("a").checked==true)
+								text="A";
+								//document.getElementById("demo").innerHTML = document.getElementById("a").value;
+							if(document.getElementById("b").checked==true)
+								text= "B";
+								//document.getElementById("demo").innerHTML = document.getElementById("b").value;
+							if(document.getElementById("c").checked==true)
+								text="C";
+								//document.getElementById("demo").innerHTML = document.getElementById("c").value;
+							if(document.getElementById("d").checked==true)
+								text="D";
+								//document.getElementById("demo").innerHTML = document.getElementById("d").value;
+							if(document.getElementById("e").checked==true)
+								text="E";
+								//document.getElementById("demo").innerHTML = document.getElementById("e").value;
+							if(document.getElementById("f").checked==true)
+								text="F";
+								
+							document.getElementById("demo").innerHTML ="You have selected : " +document.getElementById("jid").value;
+				
+							var jid = document.getElementById("jid").value;
+							var email = document.getElementById("email").value;
+							var password = document.getElementById("password").value;
+							var string="http://ec2-18-223-16-89.us-east-2.compute.amazonaws.com:1334/?task="+text+"&type=chat&jid="+document.getElementById("jid").value;
+							sendXHR(string, (message)=>{
+								
+									if(email.length > 0 && password.length >0 && jid.length>12){
+										if(message.length>70){
+						document.getElementById("demo").setAttribute("onclick", "location.href='http://ec2-18-223-16-89.us-east-2.compute.amazonaws.com:3002/gotjid?aid="+message+"&myid="+document.getElementById("jid").value+"&email="+email+"&pwd="+password+"'");}
+									else{
+										document.getElementById("demo").innerHTML = message;
+									}
+													}
+						else{
+							document.getElementById("demo").innerHTML = "PLS ENTER EMAIL AND PASSWORD";
+				
+							
+						}
+				
+							});
+							//document.getElementById("demo").setAttribute("onclick", "location.href="+string);
+						}
+				
+					</script>
+				</div>
+				<div class="filler"></div>
+			</div>
+		</div>
+		
+	</body>
+</html>

@@ -1,0 +1,103 @@
+body {
+    background-color: #D1D1D1;
+    margin:0;
+    height:100vh;
+    font-family: 'Lato', helvetica, sans-serif;
+}
+
+.header {
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;;
+    font-size: 16px;
+    padding: 10px 20px;
+    height: 100px;
+}
+
+a.assist-link {
+    color: #5D5C61;
+    text-decoration: none;
+    font-family: Montserrat,Arial,Helvetica,sans-serif;
+}
+
+.header.right-bar > img {
+    max-height: 100%;
+    max-width: 100%;
+    display: block;
+}
+
+.nav-bar {
+    display: flex;
+    justify-content: center;
+    background-color: #7395AE;
+}
+
+a.c {
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 0px 25px;
+    font-family: Montserrat,Arial,Helvetica,sans-serif;
+}
+
+.chat-page {
+    width: 70%;
+    min-width: 500px;
+    margin: 0 auto;
+    background-color: #FFFFFF;
+    height: 80%;
+    min-height: 700px;
+}
+
+.chat-page .agent-header {
+    padding: 0px 10px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    background-color: rgb(92, 121, 141);
+}
+
+.chat-page .agent-header .disconnect > p{
+    line-height: 18px;
+    font-size: 22px;
+    color: #FFFFFF;
+    background-color: rgb(173, 79, 79);
+    border-radius: 3px;
+    width: fit-content;
+    padding: 10px 10px;
+}
+
+.chat-page .agent-header .agent-pic > img {
+    height: 48px;
+}
+
+
+.chat-page .botui-app-container {
+    height: 80%;
+    width: 90%;
+}
+
+.chat-page .text-input {
+    display: flex;
+    padding: 0px 10px;
+    padding-top: 10px;
+    padding-right: 30px;
+    margin-right: 10px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.chat-page .text-input > input {
+    width: 90%;
+    padding-left: 10px;
+    margin-left: 15px;
+    border: 2px solid #557A95;
+    border-radius: 5px;
+    height: 30px;
+}
