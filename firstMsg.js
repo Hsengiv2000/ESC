@@ -71,11 +71,14 @@ const prompt = require('prompt-sync')({sigint: true});
 class RainbowUsers{
 
 
-    initSDK(options)
+    initSDK(options,cb)
     {
         this.rainbowSDK  = new RainbowSDK(options);
+      
         this.test=[];
-        this.rainbowSDK.start();
+        this.rainbowSDK.start().then(()=>{console.log("okay it works");cb(1);}).catch((err)=>{console.log("wrong pwd");           httpGetAsync("http://ec2-18-223-16-89.us-east-2.compute.amazonaws.com:1334/disconnect?djid="+this.myId+"&daid="+this.agentId,(res)=>{console.log(res)});
+ cb(0);});
+  
         this.enable();
     }
 
@@ -151,15 +154,24 @@ app.get('/gotjid' ,(req,res)=>{
     userPassword = req.query['pwd'];
     console.log(agentId, myId, userEmailAccount, userPassword);
     var user = new RainbowUsers(agentId, myId);
-    user.initSDK(createOptions(userEmailAccount,userPassword));
-    users[myId] =  user;
-    console.log(users);
-    if(agentId.length >70){
+try{ 
+   user.initSDK(createOptions(userEmailAccount,userPassword),(a)=>{
+
+if(a==1){if(agentId.length >70){
      
      res.redirect("/chat?jid="+myId+"&flag=true");
      }
     else{res.redirect("/chat?jid="+myId+"&flag=false");}
+    users[myId] =  user;
+    console.log(users);
+}
+else{res.redirect("/wrongpwd?alert=true");}
+});
+   } catch(err){console.log("CATCHING");res.redirect("/wrongpwd?alert=true");}
     
+});
+app.get('/wrongpwd',(req,res)=>{
+res.sendfile("./public/assistance.html");
 });
 app.get('/chat' , (req,res)=>{
 
