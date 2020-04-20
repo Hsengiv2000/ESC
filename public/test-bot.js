@@ -103,10 +103,11 @@ sendXHR("http://ec2-18-223-16-89.us-east-2.compute.amazonaws.com:3002/send?msg="
 
 }
 function disconnect(){
-
-sendXHR("http://ec2-18-223-16-89.us-east-2.compute.amazonaws.com:3002/stop", (msg)=>{console.log("recieved")});
+document.getElementById("disconnect").onclick=function () {
+        location.href = "fashion.html";
+    };;
+sendXHR("http://ec2-18-223-16-89.us-east-2.compute.amazonaws.com:3002/stop?myid="+getQueryVariable("jid"), (msg)=>{console.log("recieved")});
 console.log("disconnecting");
-document.getElementById("disconnect").setAttribute("onclick", "location.href="+"'http://ec2-18-223-16-89.us-east-2.compute.amazonaws.com:3002/stop?myid="+getQueryVariable("jid")+"'");
-
+//
 }
 init();

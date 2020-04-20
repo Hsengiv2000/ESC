@@ -96,8 +96,7 @@ class RainbowUsers{
         this.rainbowSDK.events.on('rainbow_onstopped' , (message)=>{
     
             console.log("stopped");
-            httpGetAsync("http://ec2-18-223-16-89.us-east-2.compute.amazonaws.com:1334/disconnect?djid="+this.myId+"&daid="+this.agentId,(res)=>{console.log(res)});
-           // this.rainbowSDK.stop();
+            // this.rainbowSDK.stop();
            // httpGetAsync("http://localhost:1333/disconnect");
             
         });
@@ -106,7 +105,7 @@ class RainbowUsers{
     console.log("sipp");
     this.rainbowSDK.events.on("rainbow_onready", () => {
         // Get your network's list of contacts
-    console.log(this.rainbowSDK);
+ //   console.log(this.rainbowSDK);
         // Do something with this list
         console.log("HELLOFROMTHEOTHERSIDE");
         //console.log(contacts);
@@ -122,11 +121,11 @@ class RainbowUsers{
     this.rainbowSDK.events.on('rainbow_onmessagereceived', (message) => {
         if(message.fromJid == this.agentId || message.fromJid =="5e0d870daebd4ad7bff9a9b34fd53bfe@sandbox-all-in-one-rbx-prod-1.rainbow.sbg"){
        
-if(message.fromJid =="5e0d870daebd4ad7bff9a9b34fd53bfe@sandbox-all-in-one-rbx-prod-1.rainbow.sbg"){this.agentId = message.content;}
-        console.log(message.fromJid);
- this.test.push("Hi How may I help you?");
-        }
-else{this.test.push(message.content);}
+//if(message.fromJid ==="5e0d870daebd4ad7bff9a9b34fd53bfe@sandbox-all-in-one-rbx-prod-1.rainbow.sbg"){this.agentId = message.content;}
+   //     console.log(message.fromJid);
+ //this.test.push("Hi How may I help you?");
+        
+this.test.push(message.content);}
     console.log(message.fromJid + "  " + this.agentId);
     console.log(message.content);
     
@@ -183,8 +182,11 @@ app.get('/chat' , (req,res)=>{
 });
 app.get('/stop' , (req,res)=>{
     myId = req.query["myid"];
-    users[myId].rainbowSDK.stop();
-    res.sendfile("./public/fashion.html");
+    httpGetAsync("http://ec2-18-223-16-89.us-east-2.compute.amazonaws.com:1334/disconnect?djid="+myId+"&daid="+users[myId].agentId,(res)=>{console.log(res)});
+           console.log("attempting to stop");
+ users[myId].rainbowSDK.stop();
+res.send("stopping");  
+  //res.sendfile("./public/fashion.html");
 });
 app.get('/send',(req, res)=>{
     var msg = req.query["msg"];
