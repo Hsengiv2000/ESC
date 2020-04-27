@@ -1,9 +1,9 @@
 <html>
 	<head>
-		<title>MARJ - Assistance</title>
+		<title>MARJ - Assitance</title>
 		<link rel="stylesheet" type="text/css" href= "assist-page.css">
 	</head>
-	<body onload="alerter()">
+	<body>
 		<div class="header">
             <div class="assistance">
                 <a href = "assistance.html" class ="assist-link"> Need assistance?</a>
@@ -42,29 +42,14 @@
 				<div class="form-category">
 					<p>How can we help you?</p>
 					<input type ="radio" id="a" value="complicated site navigation" name="rb" checked> complicated site navigation<br>
-					<input type ="radio" id="b" value="Limited product information" name="rb"> Limited product information<br>
+					<input type ="radio" id="b" value="Limited product info" name="rb"> Limited product info<br>
 					<input type ="radio" id="c" value="Poor customer support" name="rb"> Poor customer support<br>
-					<input type ="radio" id="d" value="Disappointing page load time" name="rb"> Disappointing page load time<br>
+					<input type ="radio" id="d" value=" Disappointing page load time" name="rb"> Disappointing page load time<br>
 					<input type ="radio" id="e" value="Unattractive website layout" name="rb"> Unattractive website layout<br>
 					<input type ="radio" id="f" value="none of the above" name="rb"> none of the above<br><br>
 				
 					<p id="demo" class="connect" onclick = "radiotextgetter()">Connect</p>
 					<script>
-function getQueryVariable(variable) {
-    var query = window.location.search.substring(1);
-    var vars = query.split('&');
-    for (var i = 0; i < vars.length; i++) {
-        var pair = vars[i].split('=');
-        if (decodeURIComponent(pair[0]) == variable) {
-            return decodeURIComponent(pair[1]);
-        }
-    }
-    console.log('Query variable %s not found', variable);
-}
-function alerter(){	if(getQueryVariable("alert") ==="true"){
-							alert("ENTER THE CORRECT EMAIL/PWD");
-										}
-						}
 						function message() {
 						alert("You have completed the form! Thanks for your help in making our service better");
 						}
@@ -98,30 +83,31 @@ function alerter(){	if(getQueryVariable("alert") ==="true"){
 							if(document.getElementById("f").checked==true)
 								text="F";
 								
-							document.getElementById("demo").innerHTML ="LOADING.....";//"You have selected : " +document.getElementById("jid").value;
+							document.getElementById("demo").innerHTML ="You have selected : " +document.getElementById("jid").value;
 				
 							var jid = document.getElementById("jid").value;
 							var email = document.getElementById("email").value;
 							var password = document.getElementById("password").value;
 							var string="http://ec2-18-223-16-89.us-east-2.compute.amazonaws.com:1334/?task="+text+"&type=chat&jid="+document.getElementById("jid").value;
-							document.getElementById("demo").onclick=null;
+								
 									if(email.length > 0 && password.length >0 && jid.length>12){
-								sendXHR(string, (message)=>{
-									if(message.length>70 || message==="PleaseQueue"){
-						document.getElementById("demo").innerHTML = "You are set! Click once more to connect: "+message;
+							
+			sendXHR(string, (message)=>{
+								
+						if(message.length>70){
 						document.getElementById("demo").setAttribute("onclick", "location.href='http://ec2-18-223-16-89.us-east-2.compute.amazonaws.com:3002/gotjid?aid="+message+"&myid="+document.getElementById("jid").value+"&email="+email+"&pwd="+password+"'");}
 									else{
 										document.getElementById("demo").innerHTML = message;
 									}
 													});
-						}else{
+						else{
 							document.getElementById("demo").innerHTML = "PLS ENTER EMAIL AND PASSWORD";
 				
-							document.getElementById("demo").onclick = readiotextgetter;
+							
 						}
 				
 							
-							//
+							//document.getElementById("demo").setAttribute("onclick", "location.href="+string);
 						}
 				
 					</script>

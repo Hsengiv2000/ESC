@@ -34,17 +34,21 @@ function sendXHR(repo, cb) {
   }
   xhr.send();
 }
-
 function init() {
   console.log("supp");
  var index=0
+flag = getQueryVariable("flag");
+
   setInterval(function(){sendXHR("http://ec2-18-223-16-89.us-east-2.compute.amazonaws.com:3002/recieve?ind="+index.toString()+"&jid="+getQueryVariable("jid"), (msg)=>{
  console.log(msg);
  console.log(index);
+
  
 for(let i = 0; i < msg["msgs"].length;i++){
     botMsg(msg["msgs"][i]);
-  index+=1;}
+  index+=1;
+flag="true";
+}
     
 
   });} , 2000);
@@ -72,9 +76,15 @@ function humanMsg(msg){
 
 }
 function send(){
+console.log("yoooo");
   console.log(getQueryVariable("jid"));
-
+if(flag==="true"){
 getText();
+document.getElementById("input").value = "";
+}
+else{
+alert("Pls wait for an agent to be available, agent will automatically message.");
+}
 
 }
 function botMsg(msg){
@@ -93,10 +103,11 @@ sendXHR("http://ec2-18-223-16-89.us-east-2.compute.amazonaws.com:3002/send?msg="
 
 }
 function disconnect(){
-
-sendXHR("http://ec2-18-223-16-89.us-east-2.compute.amazonaws.com:3002/stop", (msg)=>{console.log("recieved")});
+document.getElementById("disconnect").onclick=function () {
+        location.href = "fashion.html";
+    };;
+sendXHR("http://ec2-18-223-16-89.us-east-2.compute.amazonaws.com:3002/stop?myid="+getQueryVariable("jid"), (msg)=>{console.log("recieved")});
 console.log("disconnecting");
-document.getElementById("disconnect").setAttribute("onclick", "location.href="+"'http://ec2-18-223-16-89.us-east-2.compute.amazonaws.com:3002/stop?myid="+getQueryVariable("jid")+"'");
-
+//
 }
 init();

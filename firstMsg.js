@@ -5,7 +5,9 @@ var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 const express = require('express')
 const app = express()
 const cors = require("cors");
-app.use(express.static('public'))
+var compression = require('compression');
+app.use(compression());
+app.use(express.static('public'));
 app.use(cors({credentials: true})); 
 
 const port = 3002
@@ -69,11 +71,14 @@ const prompt = require('prompt-sync')({sigint: true});
 class RainbowUsers{
 
 
-    initSDK(options)
+    initSDK(options,cb)
     {
         this.rainbowSDK  = new RainbowSDK(options);
+      
         this.test=[];
-        this.rainbowSDK.start();
+        this.rainbowSDK.start().then(()=>{console.log("okay it works");cb(1);}).catch((err)=>{console.log("wrong pwd");           httpGetAsync("http://ec2-18-223-16-89.us-east-2.compute.amazonaws.com:1334/disconnect?djid="+this.myId+"&daid="+this.agentId,(res)=>{console.log(res)});
+ cb(0);});
+  
         this.enable();
     }
 
@@ -91,8 +96,7 @@ class RainbowUsers{
         this.rainbowSDK.events.on('rainbow_onstopped' , (message)=>{
     
             console.log("stopped");
-            httpGetAsync("http://ec2-18-223-16-89.us-east-2.compute.amazonaws.com:1334/disconnect?djid="+this.myId+"&daid="+this.agentId,(res)=>{console.log(res)});
-           // this.rainbowSDK.stop();
+            // this.rainbowSDK.stop();
            // httpGetAsync("http://localhost:1333/disconnect");
             
         });
@@ -101,7 +105,7 @@ class RainbowUsers{
     console.log("sipp");
     this.rainbowSDK.events.on("rainbow_onready", () => {
         // Get your network's list of contacts
-    console.log(this.rainbowSDK);
+ //   console.log(this.rainbowSDK);
         // Do something with this list
         console.log("HELLOFROMTHEOTHERSIDE");
         //console.log(contacts);
@@ -115,10 +119,14 @@ class RainbowUsers{
     });
     
     this.rainbowSDK.events.on('rainbow_onmessagereceived', (message) => {
-        if(message.fromJid == this.agentId){
-        this.test.push(message.content);
-        console.log(message.fromJid);
-        }
+        if(message.fromJid == this.agentId || message.fromJid =="5e0d870daebd4ad7bff9a9b34fd53bfe@sandbox-all-in-one-rbx-prod-1.rainbow.sbg"){
+       
+if(message.fromJid ==="5e0d870daebd4ad7bff9a9b34fd53bfe@sandbox-all-in-one-rbx-prod-1.rainbow.sbg"){this.agentId = message.content;this.test.push("Hey, how may I help you?");}
+   //     console.log(message.fromJid);
+ //this.test.push("Hi How may I help you?");
+ else{       
+this.test.push(message.content);}
+   } console.log(message.fromJid + "  " + this.agentId);
     console.log(message.content);
     
     
@@ -131,7 +139,16 @@ class RainbowUsers{
 
 // Start the SDK
 let users = new Object();
+app.get('/updatejid' , (req,res)=>{
 
+agentId = req.query["aid"];
+myId = req.query["cid"];
+users[myId].agentId = agentId;
+console.log("RECEIVED A JID UPDATE");
+console.log(users[myId].agentId);
+res.send("updated");
+
+});
 app.get('/gotjid' ,(req,res)=>{
     agentId = req.query["aid"];
     myId = req.query["myid"];
@@ -139,10 +156,24 @@ app.get('/gotjid' ,(req,res)=>{
     userPassword = req.query['pwd'];
     console.log(agentId, myId, userEmailAccount, userPassword);
     var user = new RainbowUsers(agentId, myId);
-    user.initSDK(createOptions(userEmailAccount,userPassword));
+try{ 
+   user.initSDK(createOptions(userEmailAccount,userPassword),(a)=>{
+
+if(a==1){if(agentId.length >70){
+     
+     res.redirect("/chat?jid="+myId+"&flag=true");
+     }
+    else{res.redirect("/chat?jid="+myId+"&flag=false");}
     users[myId] =  user;
     console.log(users);
-    res.redirect("/chat?jid="+myId);
+}
+else{res.redirect("/wrongpwd?alert=true");}
+});
+   } catch(err){console.log("CATCHING");res.redirect("/wrongpwd?alert=true");}
+    
+});
+app.get('/wrongpwd',(req,res)=>{
+res.sendfile("./public/assistance.html");
 });
 app.get('/chat' , (req,res)=>{
 
@@ -151,8 +182,11 @@ app.get('/chat' , (req,res)=>{
 });
 app.get('/stop' , (req,res)=>{
     myId = req.query["myid"];
-    users[myId].rainbowSDK.stop();
-    res.sendfile("./public/fashion.html");
+    httpGetAsync("http://ec2-18-223-16-89.us-east-2.compute.amazonaws.com:1334/disconnect?djid="+myId+"&daid="+users[myId].agentId,(res)=>{console.log(res)});
+           console.log("attempting to stop");
+ users[myId].rainbowSDK.stop();
+res.send("stopping");  
+  //res.sendfile("./public/fashion.html");
 });
 app.get('/send',(req, res)=>{
     var msg = req.query["msg"];
